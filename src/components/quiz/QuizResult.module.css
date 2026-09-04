@@ -1,0 +1,172 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-6);
+  padding: var(--sp-6);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--bg-surface);
+}
+
+.pass {
+  background: linear-gradient(180deg, var(--success-soft), var(--bg-surface) 60%);
+}
+
+.fail {
+  background: linear-gradient(180deg, var(--danger-soft), var(--bg-surface) 60%);
+}
+
+.ringValue {
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-black);
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.ringLabel {
+  font-size: var(--fs-2xs);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.status {
+  align-self: flex-start;
+  padding: 3px 10px;
+  border-radius: var(--r-full);
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+.statusPass {
+  background: var(--success);
+  color: #fff;
+}
+
+.statusFail {
+  background: var(--danger);
+  color: #fff;
+}
+
+.verdict {
+  font-size: var(--fs-2xl);
+  color: var(--text-primary);
+}
+
+.counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  font-size: var(--fs-base);
+}
+
+.countOk,
+.countBad {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: var(--fw-medium);
+}
+
+.countOk { color: var(--success); }
+.countBad { color: var(--danger); }
+
+.xp {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  color: var(--brand);
+}
+
+/* ---- Tahlil ---- */
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.reviewTitle {
+  font-size: var(--fs-lg);
+  color: var(--text-primary);
+}
+
+.reviewList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: 0;
+  list-style: none;
+}
+
+.reviewItem {
+  display: flex;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--bg-surface);
+}
+
+.reviewMark {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  border-radius: var(--r-full);
+  color: #fff;
+}
+
+.markOk { background: var(--success); }
+.markBad { background: var(--danger); }
+
+.reviewBody {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.reviewPrompt {
+  font-size: var(--fs-base);
+  color: var(--text-primary);
+}
+
+.reviewExplain {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-normal);
+  color: var(--text-secondary);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+}
+
+@media (max-width: 640px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  .status {
+    align-self: center;
+  }
+  .counts {
+    justify-content: center;
+  }
+}

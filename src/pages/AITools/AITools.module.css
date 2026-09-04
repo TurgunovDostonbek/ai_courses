@@ -1,0 +1,41 @@
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-4);
+}
+
+.search {
+  min-width: 240px;
+  flex: 1;
+  max-width: 360px;
+}
+
+.controlRight {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-5);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(276px, 1fr));
+  gap: var(--sp-4);
+  align-items: start;
+}
+
+@media (max-width: 640px) {
+  .search {
+    max-width: none;
+    width: 100%;
+  }
+}

@@ -1,0 +1,98 @@
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  max-width: 780px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-md);
+  color: var(--text-primary);
+  margin-bottom: var(--sp-4);
+}
+
+.title svg {
+  color: var(--brand);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  padding: var(--sp-3) 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.rowText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rowLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+  color: var(--text-primary);
+}
+
+.rowHint {
+  font-size: var(--fs-xs);
+  color: var(--text-tertiary);
+}
+
+.note {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-normal);
+  color: var(--text-secondary);
+  margin-bottom: var(--sp-4);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.fileInput {
+  display: none;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-4);
+}
+
+.about dt {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.about dd {
+  margin: 0;
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.version {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.modalFoot {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--sp-2);
+  width: 100%;
+}

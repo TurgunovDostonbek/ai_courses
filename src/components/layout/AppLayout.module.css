@@ -1,0 +1,32 @@
+.shell {
+  min-height: 100dvh;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  transition: padding-left var(--dur-base) var(--ease-out);
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1100px) {
+  .body {
+    padding-left: var(--sidebar-w);
+  }
+
+  .shellCollapsed .body {
+    padding-left: var(--sidebar-w-collapsed);
+  }
+}
+
+@media (max-width: 720px) {
+  .main {
+    padding-bottom: calc(var(--bottomnav-h) + env(safe-area-inset-bottom));
+  }
+}

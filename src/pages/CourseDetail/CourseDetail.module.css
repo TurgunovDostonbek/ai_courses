@@ -1,0 +1,277 @@
+.hero {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-6);
+  margin: var(--sp-4) 0 var(--sp-6);
+  padding: var(--sp-6);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  background: var(--bg-surface);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: var(--course-color, var(--brand));
+}
+
+.heroMain {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  min-width: 0;
+}
+
+.heroTop {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: var(--r-lg);
+  color: #fff;
+}
+
+.level {
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--text-muted);
+}
+
+.title {
+  font-size: var(--fs-3xl);
+  letter-spacing: var(--tracking-tight);
+}
+
+.description {
+  font-size: var(--fs-md);
+  line-height: var(--lh-relaxed);
+  color: var(--text-secondary);
+  max-width: 68ch;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+}
+
+.heroSide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-shrink: 0;
+}
+
+.ringValue {
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-black);
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.ringLabel {
+  font-size: var(--fs-2xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+.ringCount {
+  font-size: var(--fs-sm);
+  color: var(--text-tertiary);
+}
+
+/* ---- Tana ---- */
+.body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
+  gap: var(--sp-5);
+  align-items: start;
+}
+
+.lessons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  min-width: 0;
+}
+
+.sectionTitle {
+  font-size: var(--fs-lg);
+  color: var(--text-primary);
+}
+
+.lessonList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+/* ---- Test kartasi ---- */
+.quizCard {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  margin-top: var(--sp-3);
+  border-color: color-mix(in srgb, var(--brand) 30%, var(--border));
+  background: linear-gradient(135deg, var(--brand-soft), var(--bg-surface) 70%);
+}
+
+.quizIcon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: var(--r-md);
+  background: var(--brand);
+  color: var(--text-on-brand);
+}
+
+.quizBody {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.quizTitle {
+  font-size: var(--fs-md);
+  color: var(--text-primary);
+}
+
+.quizText {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+.quizMeta {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.quizAction {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-shrink: 0;
+}
+
+.quizScore {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.quizPassed {
+  color: var(--success);
+}
+
+/* ---- Yon ustun ---- */
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  position: sticky;
+  top: calc(var(--topbar-h) + var(--sp-4));
+}
+
+.sideTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-md);
+  color: var(--text-primary);
+  margin-bottom: var(--sp-3);
+}
+
+.sideTitle svg {
+  color: var(--brand);
+}
+
+.outcomes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: 0;
+  list-style: none;
+}
+
+.outcomes li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-normal);
+  color: var(--text-secondary);
+}
+
+.outcomes svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--success);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+@media (max-width: 1000px) {
+  .body {
+    grid-template-columns: 1fr;
+  }
+  .side {
+    position: static;
+  }
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .heroSide {
+    flex-direction: row;
+    align-self: stretch;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .quizCard {
+    flex-wrap: wrap;
+  }
+  .quizAction {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .title {
+    font-size: var(--fs-2xl);
+  }
+}

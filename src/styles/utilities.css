@@ -1,0 +1,115 @@
+/* ============================================================
+   Small global utilities (used sparingly; prefer CSS Modules)
+   ============================================================ */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--sp-4);
+  z-index: var(--z-toast);
+  padding: var(--sp-3) var(--sp-5);
+  background: var(--brand);
+  color: var(--text-on-brand);
+  border-radius: var(--r-md);
+  font-weight: var(--fw-semibold);
+  transition: top var(--dur-base) var(--ease-out);
+}
+
+.skip-link:focus {
+  top: var(--sp-4);
+  text-decoration: none;
+}
+
+.page {
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: var(--sp-6) var(--sp-6) var(--sp-16);
+  animation: page-in var(--dur-slow) var(--ease-out) both;
+}
+
+.page--wide {
+  max-width: 1440px;
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: var(--sp-4) var(--sp-4) var(--sp-12);
+  }
+}
+
+/* Rich text rendered from lesson content */
+.prose {
+  color: var(--text-secondary);
+  font-size: var(--fs-md);
+  line-height: var(--lh-relaxed);
+  max-width: 74ch;
+}
+
+.prose > * + * {
+  margin-top: var(--sp-4);
+}
+
+.prose h2 {
+  font-size: var(--fs-xl);
+  color: var(--text-primary);
+  margin-top: var(--sp-8);
+}
+
+.prose h3 {
+  font-size: var(--fs-lg);
+  color: var(--text-primary);
+  margin-top: var(--sp-6);
+}
+
+.prose strong {
+  color: var(--text-primary);
+  font-weight: var(--fw-semibold);
+}
+
+.prose ul,
+.prose ol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.prose pre {
+  background: var(--bg-code);
+  color: #e2e8f0;
+  padding: var(--sp-4);
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-snug);
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--brand);
+  padding: var(--sp-1) 0 var(--sp-1) var(--sp-4);
+  color: var(--text-primary);
+  font-style: italic;
+}

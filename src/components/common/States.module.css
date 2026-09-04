@@ -1,0 +1,121 @@
+.state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--sp-3);
+  padding: var(--sp-12) var(--sp-6);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--r-lg);
+  background: var(--bg-surface-2);
+}
+
+.compact {
+  padding: var(--sp-6) var(--sp-4);
+  gap: var(--sp-2);
+}
+
+.iconWrap {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--r-full);
+  background: var(--bg-inset);
+  color: var(--text-muted);
+}
+
+.compact .iconWrap {
+  width: 40px;
+  height: 40px;
+}
+
+.errorIcon {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.title {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  color: var(--text-primary);
+}
+
+.description {
+  max-width: 46ch;
+  font-size: var(--fs-sm);
+  color: var(--text-tertiary);
+  line-height: var(--lh-normal);
+}
+
+.action {
+  margin-top: var(--sp-2);
+}
+
+.error {
+  border-style: solid;
+  border-color: var(--border);
+}
+
+/* ---- Skeleton ---- */
+.skeleton {
+  display: block;
+  background: linear-gradient(
+    90deg,
+    var(--bg-inset) 25%,
+    var(--bg-surface-3) 37%,
+    var(--bg-inset) 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  from { background-position: 100% 50%; }
+  to { background-position: 0 50%; }
+}
+
+.skeletonCard {
+  display: flex;
+  gap: var(--sp-3);
+  padding: var(--sp-5);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+}
+
+.skeletonBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  flex: 1;
+  min-width: 0;
+}
+
+/* ---- Page loader ---- */
+.pageLoader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  min-height: 45dvh;
+  color: var(--text-tertiary);
+}
+
+.spinner {
+  width: 26px;
+  height: 26px;
+  border: 2.5px solid var(--border-strong);
+  border-top-color: var(--brand);
+  border-radius: 50%;
+  animation: spin 700ms linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loaderLabel {
+  font-size: var(--fs-sm);
+}

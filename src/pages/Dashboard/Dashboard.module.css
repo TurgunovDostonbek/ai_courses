@@ -1,0 +1,172 @@
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-5);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+  gap: var(--sp-5);
+  margin-top: var(--sp-5);
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  min-width: 0;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.blockTitle {
+  font-size: var(--fs-lg);
+  color: var(--text-primary);
+}
+
+.courseGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--sp-3);
+}
+
+.quickGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--sp-3);
+}
+
+.link {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--text-brand);
+}
+
+.cardHeadPad {
+  padding: var(--sp-4) var(--sp-4) 0;
+}
+
+.cardBodyPad {
+  padding: var(--sp-4);
+}
+
+/* ---- Daraja kartasi ---- */
+.rankCard {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.rankIcon {
+  display: block;
+}
+
+.rankPct {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.rankText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.rankLabel {
+  font-size: var(--fs-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--text-muted);
+  font-weight: var(--fw-bold);
+}
+
+.rankName {
+  font-size: var(--fs-xl);
+  color: var(--text-primary);
+}
+
+.rankNext {
+  font-size: var(--fs-xs);
+  color: var(--text-tertiary);
+  line-height: var(--lh-normal);
+}
+
+/* ---- Kunlik challenge ---- */
+.dailyTitle {
+  font-size: var(--fs-md);
+  color: var(--text-primary);
+  margin-bottom: var(--sp-1);
+}
+
+.dailyText {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-normal);
+  color: var(--text-secondary);
+  margin-bottom: var(--sp-3);
+}
+
+.dailyBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: var(--sp-2) var(--sp-4);
+  border-radius: var(--r-sm);
+  background: var(--warning-soft);
+  color: var(--warning);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+}
+
+.dailyBtn:hover {
+  text-decoration: none;
+  filter: brightness(0.96);
+}
+
+/* ---- Nishonlar ---- */
+.badgeCount {
+  font-size: var(--fs-sm);
+  color: var(--text-tertiary);
+  margin-bottom: var(--sp-2);
+}
+
+.badgeCount strong {
+  font-size: var(--fs-xl);
+  color: var(--text-primary);
+}
+
+.badgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.badgeDot {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--r-sm);
+  background: var(--bg-inset);
+  border: 1px solid var(--border-subtle);
+  font-size: 17px;
+}
+
+.badgeEmpty {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+@media (max-width: 1080px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

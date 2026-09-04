@@ -1,0 +1,348 @@
+.progressStrip {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin: var(--sp-3) 0 var(--sp-6);
+}
+
+.strip {
+  flex: 1;
+}
+
+.position,
+.percent {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
+}
+
+/* ---- Sarlavha ---- */
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.headMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--fs-xs);
+  color: var(--text-tertiary);
+}
+
+.doneTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 9px;
+  border-radius: var(--r-full);
+  background: var(--success-soft);
+  color: var(--success);
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+.title {
+  font-size: var(--fs-4xl);
+  letter-spacing: var(--tracking-tight);
+  max-width: 22ch;
+}
+
+.summary {
+  font-size: var(--fs-lg);
+  line-height: var(--lh-relaxed);
+  color: var(--text-secondary);
+  max-width: 70ch;
+}
+
+/* ---- Kirish kartalari ---- */
+.intro {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--sp-4);
+}
+
+.introCard {
+  background: var(--bg-surface-2);
+}
+
+.introTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--text-muted);
+  margin-bottom: var(--sp-3);
+}
+
+.introTitle svg {
+  color: var(--brand);
+}
+
+.objectives {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  font-size: var(--fs-base);
+  line-height: var(--lh-normal);
+  color: var(--text-secondary);
+  padding-left: 1.1em;
+}
+
+.objectives li::marker {
+  color: var(--brand);
+}
+
+.whyText {
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--text-secondary);
+}
+
+/* ---- Bo'limlar ---- */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  max-width: 78ch;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-xl);
+  color: var(--text-primary);
+}
+
+.sectionTitle svg {
+  color: var(--brand);
+}
+
+.realWorld {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding-left: 1.15em;
+  font-size: var(--fs-md);
+  line-height: var(--lh-normal);
+  color: var(--text-secondary);
+}
+
+/* ---- Amaliyot ---- */
+.practice {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  max-width: 78ch;
+  padding: var(--sp-5);
+  border: 1px solid color-mix(in srgb, var(--brand) 26%, var(--border));
+  border-radius: var(--r-lg);
+  background: linear-gradient(180deg, var(--brand-soft), var(--bg-surface) 55%);
+}
+
+.practiceTitle {
+  font-size: var(--fs-md);
+  color: var(--text-primary);
+}
+
+.practiceTask {
+  font-size: var(--fs-md);
+  line-height: var(--lh-relaxed);
+  color: var(--text-secondary);
+}
+
+.hint {
+  align-self: flex-start;
+}
+
+.hintText {
+  font-size: var(--fs-base);
+  color: var(--text-secondary);
+  line-height: var(--lh-normal);
+}
+
+.answerLabel {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--text-primary);
+}
+
+.practiceActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.sample {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  padding: var(--sp-4);
+  border-radius: var(--r-md);
+  background: var(--bg-inset);
+  border: 1px dashed var(--border-strong);
+}
+
+.sampleLabel {
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--text-muted);
+}
+
+.sampleText {
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--text-secondary);
+  white-space: pre-wrap;
+}
+
+/* ---- Xulosa ---- */
+.takeaways {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  max-width: 78ch;
+  padding: var(--sp-5);
+  border-radius: var(--r-lg);
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border);
+}
+
+.takeawayList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: 0;
+  list-style: none;
+}
+
+.takeawayList li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  font-size: var(--fs-md);
+  line-height: var(--lh-normal);
+  color: var(--text-secondary);
+}
+
+.takeawayList svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--success);
+}
+
+/* ---- Yakuniy panel ---- */
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  margin-top: var(--sp-10);
+  padding-top: var(--sp-6);
+  border-top: 1px solid var(--border);
+}
+
+.nav {
+  display: flex;
+  gap: var(--sp-3);
+  justify-content: space-between;
+}
+
+.navLink,
+.navLinkRight {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex: 1;
+  max-width: 340px;
+  padding: var(--sp-3) var(--sp-4);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--bg-surface);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color var(--dur-fast), transform var(--dur-fast);
+}
+
+.navLinkRight {
+  justify-content: flex-end;
+  text-align: right;
+  margin-left: auto;
+}
+
+.navLink:hover,
+.navLinkRight:hover {
+  text-decoration: none;
+  border-color: var(--brand);
+}
+
+.navLink:hover {
+  transform: translateX(-2px);
+}
+
+.navLinkRight:hover {
+  transform: translateX(2px);
+}
+
+.navText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.navLabel {
+  font-size: var(--fs-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--text-muted);
+  font-weight: var(--fw-bold);
+}
+
+.navTitle {
+  font-size: var(--fs-base);
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: var(--fs-2xl);
+  }
+  .summary {
+    font-size: var(--fs-md);
+  }
+  .nav {
+    flex-direction: column;
+  }
+  .navLink,
+  .navLinkRight {
+    max-width: none;
+  }
+  .practice,
+  .takeaways {
+    padding: var(--sp-4);
+  }
+}
