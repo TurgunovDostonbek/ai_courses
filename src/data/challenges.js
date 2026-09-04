@@ -419,6 +419,296 @@ CHEKLOVLAR
       examples: 'Brend ohangi namunasi yo‘q.',
     },
   },
+  {
+    id: 'pt-07',
+    badPrompt: 'Rezyumemni yaxshila.',
+    scenario: 'IT sohasida ishga joylashish uchun rezyumeni professional darajaga olib chiqmoqchisiz.',
+    difficulty: 'beginner',
+    missing: ['context', 'goal', 'specificity', 'constraints', 'format'],
+    idealPrompt: `Sen HR va rezyume mutaxassisisan.
+
+KONTEKST
+3 yillik frontend dasturchi tajribasi bor. React va TypeScript bilan ishlayman.
+Maqsadli lavozim: Middle Frontend Developer, IT kompaniyasi.
+
+MAQSAD
+Rezyume HR skrining bosqichidan o'tib, intervyuga chaqirilishi kerak.
+
+VAZIFA
+Quyidagi tajriba tavsifini natijaga yo'naltirilgan 4 ta punktga aylantir:
+{{tajriba matni}}
+
+CHEKLOVLAR
+- Har punkt harakat fe'li bilan boshlansin
+- Iloji bo'lsa raqam qo'sh (masalan: "yuklanish vaqtini 40% qisqartirdim")
+- Aslida bo'lmagan tajribani qo'shma
+
+FORMAT
+Markdown ro'yxat, har punkt bitta qator.`,
+    feedback: {
+      context: 'Qancha tajriba, qaysi lavozimga — aytilmagan.',
+      goal: 'Rezyume nimaga xizmat qilishi (qaysi bosqichdan o‘tishi) noma’lum.',
+      specificity: 'Nechta punkt, qanday chuqurlikda — belgilanmagan.',
+      constraints: 'Uydirma tajriba qo‘shilmasligi haqida ko‘rsatma yo‘q.',
+      format: 'Natija qanday ko‘rinishda kerakligi aytilmagan.',
+    },
+  },
+  {
+    id: 'pt-08',
+    badPrompt: 'Dars rejasi tuz.',
+    scenario: 'Maktabda 7-sinf o‘quvchilariga informatika darsi o‘tkazish uchun reja kerak.',
+    difficulty: 'beginner',
+    missing: ['context', 'goal', 'specificity', 'format'],
+    idealPrompt: `Sen tajribali informatika o'qituvchisisan.
+
+KONTEKST
+7-sinf, 40 daqiqalik dars, mavzu — algoritmlar asoslari.
+Sinfda 25 o'quvchi, proyektor mavjud.
+
+MAQSAD
+Dars oxirida o'quvchilar oddiy algoritmni aniq qadamlarga ajrata olishlari kerak.
+
+VAZIFA
+40 daqiqalik dars rejasini tuz: kirish, asosiy qism, amaliy mashq, yakun.
+
+FORMAT
+Jadval: vaqt, faoliyat, maqsad ustunlari bilan.
+
+CHEKLOVLAR
+Kamida bitta guruhli amaliy mashq bo'lsin.`,
+    feedback: {
+      context: 'Qaysi sinf, qancha vaqt, qanday sharoit — yo‘q.',
+      goal: 'O‘quvchi dars oxirida nimaga erishishi kerakligi aytilmagan.',
+      specificity: 'Dars qanday bosqichlardan iboratligi noaniq.',
+      format: 'Reja qanday ko‘rinishda kerakligi ko‘rsatilmagan.',
+    },
+  },
+  {
+    id: 'pt-09',
+    badPrompt: 'Hisobot yoz.',
+    scenario: 'Haftalik jamoa hisobotini rahbaringizga yubormoqchisiz.',
+    difficulty: 'beginner',
+    missing: ['context', 'goal', 'specificity', 'constraints', 'format'],
+    idealPrompt: `Sen jamoa boshlig'isan.
+
+KONTEKST
+5 kishilik marketing jamoasi. Shu hafta 3 ta loyiha ustida ishladik.
+Xom ma'lumot: {{malumot}}
+
+MAQSAD
+Rahbar 2 daqiqada jamoaning holatini tushunishi kerak.
+
+VAZIFA
+Yuqoridagi ma'lumotdan haftalik hisobot yoz.
+
+FORMAT
+3 bo'lim: Bajarilgan, Davom etayotgan, Bloklar (to'siqlar).
+
+CHEKLOVLAR
+Umumiy hajm 150 so'zdan oshmasin.`,
+    feedback: {
+      context: 'Jamoa hajmi, qaysi loyihalar — aytilmagan.',
+      goal: 'Hisobot kimga va nima uchun kerakligi noma’lum.',
+      specificity: 'Qaysi ma’lumot kiritilishi kerakligi aniq emas.',
+      constraints: 'Hajm chegarasi berilmagan — hisobot cho‘zilib ketishi mumkin.',
+      format: 'Bo‘limlar tuzilmasi ko‘rsatilmagan.',
+    },
+  },
+  {
+    id: 'pt-10',
+    badPrompt: 'Raqobatchilarni tahlil qil.',
+    scenario: 'Yangi mobil ilova ishga tushirishdan oldin raqobat muhitini o‘rganmoqchisiz.',
+    difficulty: 'intermediate',
+    missing: ['context', 'goal', 'specificity', 'constraints', 'format'],
+    idealPrompt: `Sen bozor tahlilchisisan.
+
+KONTEKST
+Toshkentda fitnes-trening mobil ilovasi ishga tushiramiz.
+Asosiy raqobatchilar: {{raqobatchilar ro'yxati}}
+
+MAQSAD
+Bizning ilovamiz uchun aniq farqlanish nuqtasini topish.
+
+VAZIFA
+Har bir raqobatchi uchun kuchli/zaif tomonlarini va narx strategiyasini tahlil qil.
+
+FORMAT
+Jadval: Raqobatchi, Kuchli tomoni, Zaif tomoni, Narx strategiyasi.
+
+CHEKLOVLAR
+Faqat berilgan ma'lumotdan foydalan, bilmagan joyingni taxmin qilma — "ma'lumot yetarli emas" deb yoz.`,
+    feedback: {
+      context: 'Qaysi bozor, qaysi raqobatchilar — ko‘rsatilmagan.',
+      goal: 'Tahlildan qanday xulosa kutilayotgani noaniq.',
+      specificity: 'Qaysi mezonlar bo‘yicha taqqoslash kerakligi aytilmagan.',
+      constraints: 'Taxmin qilmaslik haqida ko‘rsatma yo‘q — model o‘ylab topishi mumkin.',
+      format: 'Natija qanday tuzilishda kerakligi noma’lum.',
+    },
+  },
+  {
+    id: 'pt-11',
+    badPrompt: 'Dizaynga fikr bildir.',
+    scenario: 'Yangi landing sahifa dizayni bo‘yicha professional fikr-mulohaza kerak.',
+    difficulty: 'intermediate',
+    missing: ['context', 'goal', 'specificity', 'format'],
+    idealPrompt: `Sen UX dizayneri va konversiya mutaxassisisan.
+
+KONTEKST
+SaaS mahsulot uchun landing sahifa. Auditoriya — kichik biznes egalari.
+Hozirgi konversiya darajasi: 2%.
+Sahifa tavsifi: {{dizayn tavsifi yoki skrinshot}}
+
+MAQSAD
+Konversiyani oshiradigan aniq, amalga oshiriladigan tavsiyalar olish.
+
+VAZIFA
+Yuqoridagi sahifani tahlil qil. Har muammo uchun sababini va aniq yechimini ber.
+
+FORMAT
+Ustuvorlik bo'yicha ro'yxat: yuqori / o'rta / past ta'sirli o'zgarishlar.`,
+    feedback: {
+      context: 'Qanday mahsulot, kim uchun, hozirgi holat — aytilmagan.',
+      goal: 'Fikr-mulohazadan nima kutilayotgani noaniq (estetikami, konversiyami?).',
+      specificity: 'Qaysi ekran yoki elementga e’tibor qaratish aytilmagan.',
+      format: 'Javob qanday tartibda kerakligi ko‘rsatilmagan.',
+    },
+  },
+  {
+    id: 'pt-12',
+    badPrompt: 'Kodimni tuzat.',
+    scenario: 'Ilovangizdagi funksiya kutilgandek ishlamayapti, sababi hali aniq emas.',
+    difficulty: 'intermediate',
+    missing: ['context', 'specificity', 'constraints', 'format'],
+    idealPrompt: `Sen senior dasturchisan.
+
+KUTILGAN XATTI-HARAKAT
+{{nima bo'lishi kerak edi}}
+
+HAQIQIY XATTI-HARAKAT
+{{aslida nima bo'lyapti}}
+
+MUHIT
+{{til, framework, versiya}}
+
+KOD
+{{tegishli kod bo'lagi}}
+
+VAZIFA
+Darrov tuzatilgan kod yozish o'rniga, avval 3 ta eng ehtimolli sababni ustuvorlik bo'yicha ayt.
+
+FORMAT
+Har sabab uchun: nima uchun ehtimol, qanday tekshirish mumkin.
+
+CHEKLOVLAR
+Men aytmagan narsani (masalan kutubxona versiyasini) taxmin qilma — "tekshirish kerak" deb belgila.`,
+    feedback: {
+      context: 'Qaysi til, framework, qanday muhitda ishlayotgani noma’lum.',
+      specificity: 'Kutilgan va haqiqiy natija aniq ta’riflanmagan.',
+      constraints: 'Taxmin qilmaslik haqida ko‘rsatma yo‘q.',
+      format: 'Javob qanday tuzilishda kerakligi aytilmagan.',
+    },
+  },
+  {
+    id: 'pt-13',
+    badPrompt: 'Hikoya yoz.',
+    scenario: 'Bolalar uchun tarbiyaviy ertak yozmoqchisiz.',
+    difficulty: 'beginner',
+    missing: ['context', 'goal', 'specificity', 'constraints', 'format', 'examples'],
+    idealPrompt: `Sen bolalar yozuvchisisan.
+
+KONTEKST
+Auditoriya — 5-7 yoshli bolalar. Mavzu — do'stlik va yordam berish.
+
+MAQSAD
+Bola ertak oxirida aniq tarbiyaviy xulosa chiqarishi kerak.
+
+VAZIFA
+Bosh qahramoni kichik quyon bo'lgan 300 so'zlik ertak yoz.
+
+CHEKLOVLAR
+- Qo'rqinchli yoki zo'ravonlik elementi bo'lmasin
+- Oddiy, bolalarga tushunarli so'zlar ishlat
+
+FORMAT
+Sarlavha + ertak matni + 1 jumlalik tarbiyaviy xulosa.
+
+MISOL OHANG
+"""
+Kunlardan bir kun kichkina Quvonch ismli quyoncha o'rmonda sayr qilib yurardi...
+"""`,
+    feedback: {
+      context: 'Qaysi yosh guruhi, qanday mavzu — aytilmagan.',
+      goal: 'Ertakdan qanday xulosa chiqishi kerakligi noma’lum.',
+      specificity: 'Uzunlik va bosh qahramon aniqlanmagan.',
+      constraints: 'Nomaqbul kontent (qo‘rqinchli, zo‘ravon) haqida cheklov yo‘q.',
+      format: 'Natija qanday qismlardan iboratligi ko‘rsatilmagan.',
+      examples: 'Qanday ohangda yozish kerakligi haqida namuna yo‘q.',
+    },
+  },
+  {
+    id: 'pt-14',
+    badPrompt: 'Taqdimot tayyorla.',
+    scenario: 'Investorlar oldida startup g‘oyasini taqdim qilish uchun pitch matni kerak.',
+    difficulty: 'advanced',
+    missing: ['context', 'goal', 'specificity', 'constraints', 'format'],
+    idealPrompt: `Sen startup maslahatchisisan.
+
+KONTEKST
+G'oya: {{startup g'oyasi}}
+Bozor: {{maqsadli bozor}}
+Jamoa: 3 kishi, texnik va marketing tajribasi bor.
+
+MAQSAD
+5 daqiqalik taqdimot bilan investorni keyingi uchrashuvga ko'ndirish.
+
+VAZIFA
+8 slaydli pitch deck matnini yoz: Muammo, Yechim, Bozor, Mahsulot, Biznes-model, Raqobat, Jamoa, So'rov (investitsiya miqdori).
+
+FORMAT
+Har slayd uchun: sarlavha + 3 ta qisqa punkt.
+
+CHEKLOVLAR
+Har slayd matni 40 so'zdan oshmasin. Isbotlanmagan raqam yozma — "[raqam]" deb belgila.`,
+    feedback: {
+      context: 'Qanday g‘oya, qaysi bozor, qanday jamoa — noma’lum.',
+      goal: 'Taqdimotdan aniq nima kutilayotgani (nima uchun, kimga) aytilmagan.',
+      specificity: 'Qaysi slaydlar bo‘lishi kerakligi belgilanmagan.',
+      constraints: 'Hajm chegarasi va isbotlanmagan da’vo qoidasi yo‘q.',
+      format: 'Slayd tuzilishi ko‘rsatilmagan.',
+    },
+  },
+  {
+    id: 'pt-15',
+    badPrompt: 'Email marketing xati yoz.',
+    scenario: 'Mavjud mijozlarga yangi mahsulot funksiyasi haqida email yubormoqchisiz.',
+    difficulty: 'intermediate',
+    missing: ['context', 'goal', 'specificity', 'constraints', 'format'],
+    idealPrompt: `Sen email marketing mutaxassisisan.
+
+KONTEKST
+{{mahsulot}} uchun yangi funksiya chiqdi.
+Auditoriya — mavjud mijozlar, ular mahsulotni allaqachon bilishadi.
+
+MAQSAD
+Mijozlar yangi funksiyani darhol sinab ko'rishlari kerak.
+
+VAZIFA
+Email matnini yoz.
+
+FORMAT
+Mavzu qatori + tana qismi (100 so'zgacha) + CTA tugma matni.
+
+CHEKLOVLAR
+- "BEPUL", "HOZIROQ" kabi katta harfli spam so'zlar ishlatilmasin
+- Bitta aniq harakatga chaqiruv bo'lsin (bir nechta emas)`,
+    feedback: {
+      context: 'Qaysi mahsulot, kim uchun — aytilmagan.',
+      goal: 'Email nimaga erishishi kerakligi noaniq.',
+      specificity: 'Uzunlik va tarkib qismlari belgilanmagan.',
+      constraints: 'Spam so‘zlar va CTA soni haqida cheklov yo‘q.',
+      format: 'Email qanday qismlardan iboratligi ko‘rsatilmagan.',
+    },
+  },
 ]
 
 export const getPracticeTask = (id) => PRACTICE_TASKS.find((t) => t.id === id) || null
