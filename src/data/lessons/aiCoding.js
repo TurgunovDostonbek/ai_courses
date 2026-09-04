@@ -1114,12 +1114,6 @@ export const AI_CODING_LESSONS = [
         title: 'Nazoratni qo’ldan bermang',
         body: 'Agentga cheksiz ruxsat bermang. Ayniqsa: fayl o’chirish, git force operatsiyalari, deploy, ma’lumotlar bazasi buyruqlari — bularni har doim o’zingiz bajaring.',
       },
-      {
-        type: 'callout',
-        tone: 'success',
-        title: 'Level 4 tugadi',
-        body: 'Endi Real Project Lab (/projects) da loyihalarni sinang yoki Level 5 — AI for Work ga o’ting.',
-      },
     ],
     realWorld: [
       'Katta migratsiya',
@@ -1136,6 +1130,300 @@ export const AI_CODING_LESSONS = [
       'Agent ishlaydi, chat javob beradi',
       'Kichik qamrov + o’lchanadigan mezon',
       'Xavfli operatsiyalar — faqat siz',
+    ],
+  },
+
+  {
+    id: 'd-19',
+    courseId: c,
+    order: 19,
+    slug: 'xavfsizlik-audit',
+    title: 'AI bilan xavfsizlik audit',
+    summary: 'Kod yozayotgan AI xatoni ko‘rmaydi — lekin qidirishga aniq yo‘naltirsangiz, topa oladi.',
+    duration: 9,
+    xp: 50,
+    objectives: [
+      'AI’dan xavfsizlik audit uchun to‘g‘ri foydalanishni bilish',
+      'Eng ko‘p uchraydigan zaifliklar ro‘yxatini tanish',
+      'AI topilmasini haqiqiy xavfdan ajratish',
+    ],
+    why: 'AI kod yozganda xavfsizlik haqida o‘ylamaydi — siz alohida so‘ramasangiz. Xavfsizlik tekshiruvi standart review’ning bir qismi bo‘lishi kerak.',
+    blocks: [
+      { type: 'heading', body: 'Nega alohida so‘rash kerak' },
+      {
+        type: 'text',
+        body: '«Kodimni tekshir» so‘rovi ko‘pincha uslub va mantiqqa e’tibor beradi. Xavfsizlik — alohida, aniq nomlangan tekshiruv talab qiladi.',
+      },
+      {
+        type: 'table',
+        head: ['Zaiflik', 'Nimani qidirish kerak'],
+        rows: [
+          ['SQL/NoSQL injection', 'Foydalanuvchi kirishi to‘g‘ridan-to‘g‘ri so‘rovga qo‘shilishi'],
+          ['XSS', 'Foydalanuvchi matni tozalanmasdan HTML’ga chiqishi'],
+          ['Ochiq sirlar', 'API kalit, parol kodda qattiq yozilgani'],
+          ['Ruxsat nazorati', 'Endpoint foydalanuvchi huquqini tekshirmasligi'],
+          ['Zaif validatsiya', 'Kirish ma’lumoti chegara va turini tekshirmaslik'],
+        ],
+      },
+      {
+        type: 'code',
+        lang: 'text',
+        body: 'Sen xavfsizlik auditorisan.\n\nQuyidagi kodni FAQAT xavfsizlik nuqtai nazaridan tekshir:\n1. Injection (SQL, NoSQL, komandalar)\n2. XSS va ma\'lumot tozalash\n3. Autentifikatsiya va ruxsat nazorati\n4. Ochiq sirlar yoki maxfiy ma\'lumot\n5. Kirish validatsiyasi\n\nHar topilma uchun: qator, xavf darajasi (kritik/muhim/kichik), aniq tuzatish.\nUslub yoki formatlash haqida yozma.\n\nKOD:\n{{kod}}',
+      },
+      {
+        type: 'callout',
+        tone: 'warn',
+        title: 'AI hammasini topmaydi',
+        body: 'AI review — birinchi qatlam, oxirgi emas. Kritik loyihalarda maxsus xavfsizlik vositalari (SAST) va inson auditi ham kerak.',
+      },
+      { type: 'heading', body: 'Topilmani baholash' },
+      {
+        type: 'steps',
+        items: [
+          { title: '1. Haqiqatan qo‘llaniladimi?', body: 'Kod real ishlatiladigan yo‘lda ekanini tekshiring.' },
+          { title: '2. Xavf darajasini baholang', body: 'Foydalanuvchi ma’lumotiga ta’sirmi, ichki vositami?' },
+          { title: '3. Tuzatishni sinang', body: 'Tavsiya qilingan tuzatish boshqa narsani buzmasligini tekshiring.' },
+        ],
+      },
+    ],
+    realWorld: [
+      'Yangi API endpoint qo‘shishdan oldin xavfsizlik so‘rovi bilan tekshirish',
+      'Ochiq kodli kutubxonadan olingan kod bo‘lagini integratsiyadan oldin audit qilish',
+      'Pull request’ga majburiy xavfsizlik review qadamini qo‘shish',
+    ],
+    practice: {
+      title: 'O‘z endpoint’ingizni audit qiling',
+      task: 'Foydalanuvchi kirishini qabul qiladigan bitta funksiya yoki endpoint’ni tanlang va yuqoridagi promptni ishlatib xavfsizlik auditidan o‘tkazing.',
+      hint: 'Formani yoki API endpoint’ni tanlang — bular eng ko‘p hujum nishoniga aylanadi.',
+      sample: 'Login formasi tekshirilganda, parol xato xabarida "foydalanuvchi topilmadi" va "parol xato" alohida ko‘rsatilgani aniqlandi — bu email enumeration xavfi.',
+    },
+    keyTakeaways: [
+      'Xavfsizlik tekshiruvi alohida, aniq so‘rov talab qiladi',
+      'Har topilmani haqiqiy qo‘llanilishiga qarab baholang',
+      'AI audit — birinchi qatlam, yagona himoya emas',
+    ],
+  },
+
+  {
+    id: 'd-20',
+    courseId: c,
+    order: 20,
+    slug: 'performance-optimizatsiya',
+    title: 'AI bilan performance optimizatsiya',
+    summary: 'Sekin kodni tezlashtirish — avval o‘lchash, keyin o‘zgartirish.',
+    duration: 8,
+    xp: 50,
+    objectives: [
+      'AI yordamida sekin kod joyini aniqlashni bilish',
+      'Optimizatsiyani o‘lchov bilan tasdiqlashni o‘rganish',
+      'Erta optimizatsiya xavfini tushunish',
+    ],
+    why: 'AI «tezroq» kod taklif qilishi mumkin, lekin haqiqiy tezlashuvni faqat o‘lchov ko‘rsatadi.',
+    blocks: [
+      { type: 'heading', body: 'Optimizatsiya tartibi' },
+      {
+        type: 'steps',
+        items: [
+          { title: '1. O‘lchang', body: 'Qaysi qism sekin ekanini profiler yoki vaqt o‘lchov bilan aniqlang — taxmin qilmang.' },
+          { title: '2. AI’dan sabab so‘rang', body: 'Sekin kod bo‘lagini bering, nega sekinligini tushuntirishni so‘rang.' },
+          { title: '3. Variantlarni solishtiring', body: 'AI’dan bir nechta optimizatsiya yo‘lini trade-off bilan so‘rang.' },
+          { title: '4. Qayta o‘lchang', body: 'O‘zgarishdan keyin haqiqatan tezlashganini tasdiqlang.' },
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'danger',
+        title: 'Erta optimizatsiya — vaqt isrofi',
+        body: '«Ehtimol sekin bo‘lishi mumkin» degan joyni optimallashtirish — o‘qilishi qiyin kod va real foyda yo‘qligi bilan tugaydi. Avval o‘lchang.',
+      },
+      {
+        type: 'code',
+        lang: 'text',
+        body: 'Ushbu funksiya 1000 ta element bilan 2 soniya ishlayapti (kutilgan: <100ms).\n\nProfayl natijasi: {{profiler natijasi}}\n\nSabab va 2-3 ta optimizatsiya variantini trade-off (o\'qilishi, xotira, murakkablik) bilan taklif qil. Kodni darrov qayta yozma.',
+      },
+      { type: 'heading', body: 'Ko‘p uchraydigan sabablar' },
+      {
+        type: 'table',
+        head: ['Sabab', 'Odatiy yechim'],
+        rows: [
+          ['Keraksiz qayta render (frontend)', 'Memoizatsiya, kalitlarni to‘g‘ri qo‘yish'],
+          ['N+1 so‘rov (backend)', 'Bitta so‘rovda birlashtirib olish (join/batch)'],
+          ['Katta massivda ichma-ich sikl', 'Map/Set bilan qidiruvni tezlashtirish'],
+          ['Keraksiz qayta hisoblash', 'Natijani keshlash'],
+        ],
+      },
+      {
+        type: 'compare',
+        bad: {
+          title: 'Taxmin bilan optimizatsiya',
+          body: '«Bu sikl sekin ko‘rinyapti» deb, o‘lchovsiz kodni qayta yozish.',
+        },
+        good: {
+          title: 'O‘lchovga asoslangan optimizatsiya',
+          body: 'Profiler bilan aniq sekin joyni topib, o‘sha yerga e’tibor qaratish.',
+        },
+      },
+    ],
+    realWorld: [
+      'Sahifa yuklanish vaqtini profiler bilan tahlil qilib, eng sekin komponentni topish',
+      'Ma’lumotlar bazasi so‘rovini N+1 muammosidan xalos qilish',
+      'Katta ro‘yxatni render qilishda virtualizatsiya qo‘llash',
+    ],
+    practice: {
+      title: 'Sekin joyni toping va tuzating',
+      task: 'O‘z loyihangizda sekin ishlaydigan bitta funksiyani profil qiling, AI’dan sabab va yechim so‘rang, keyin qayta o‘lchang.',
+      hint: 'Brauzer DevTools yoki tilingizning profiler vositasidan foydalaning.',
+      sample: 'Ro‘yxat filtri har harf kiritilganda butun massivni qayta hisoblardi — debounce qo‘shilgach, 300ms dan 20ms ga tushdi.',
+    },
+    keyTakeaways: [
+      'Avval o‘lchang, keyin optimallashtiring',
+      'AI trade-off’larni tushuntirsin, darrov qayta yozmasin',
+      'Optimizatsiyadan keyin natijani albatta qayta o‘lchang',
+    ],
+  },
+
+  {
+    id: 'd-21',
+    courseId: c,
+    order: 21,
+    slug: 'notanish-kod-bazasi',
+    title: 'Notanish kod bazasini AI bilan o‘rganish',
+    summary: 'Yangi loyihaga kirganda, AI eng tez xarita chizuvchi hamrohingiz.',
+    duration: 8,
+    xp: 50,
+    objectives: [
+      'Katta, notanish kod bazasida yo‘nalishni tez topishni bilish',
+      'AI’dan arxitektura xaritasini so‘rashni o‘rganish',
+      'Tushunmagan qismni xavfsiz aniqlashtirishni bilish',
+    ],
+    why: 'Yangi ishga yoki loyihaga kirganda eng ko‘p vaqt ketadigan narsa — «bu qayerda va nega shunday» ni tushunish.',
+    blocks: [
+      { type: 'heading', body: 'Birinchi kun strategiyasi' },
+      {
+        type: 'steps',
+        items: [
+          { title: '1. Umumiy xarita', body: 'Papka strukturasi va asosiy texnologiyalarni AI’ga tushuntirtiring.' },
+          { title: '2. Kirish nuqtasi', body: 'Ilova qayerdan boshlanishini (main, entry point) toping.' },
+          { title: '3. Bitta oqimni kuzating', body: 'Bitta real foydalanuvchi harakatini (masalan, login) boshidan oxirigacha kuzating.' },
+          { title: '4. Savol bering', body: 'Tushunmagan qismni AI’dan alohida so‘rang — kod bo‘lagi bilan birga.' },
+        ],
+      },
+      {
+        type: 'code',
+        lang: 'text',
+        body: 'Ushbu papka strukturasi va asosiy fayllarni ko\'rib chiq:\n{{papka strukturasi}}\n\nQisqacha tushuntir:\n1. Bu qanday arxitektura (qatlamlar)\n2. Asosiy texnologiyalar\n3. Yangi funksiya qo\'shish uchun qaysi fayllardan boshlash kerak\n\nBilmagan narsangni "aniq emas" deb belgila, taxmin qilma.',
+      },
+      {
+        type: 'callout',
+        tone: 'warn',
+        title: 'AI butun loyihani "ko‘rmaydi"',
+        body: 'Context window cheklangan — AI faqat siz bergan fayllarni biladi. Katta loyihada eng muhim fayllarni tanlab berish siz zimmangizda.',
+      },
+      { type: 'heading', body: 'Tez-tez beriladigan savollar' },
+      {
+        type: 'list',
+        items: [
+          '«Bu funksiya qayerda ishlatiladi?» — chaqiruvchilarni topish',
+          '«Nega bu yerda shunday yozilgan?» — tarixiy sabab yoki workaround borligini aniqlash',
+          '«Bu o‘xshash ikki fayl orasidagi farq nima?» — dublikatsiya yoki ataylab ajratilganini bilish',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'success',
+        title: 'Kod tarixi ham manba',
+        body: 'Git blame va eski commit xabarlarini AI’ga birga bering — "nega" degan savolga ko‘pincha shu yerda javob bor.',
+      },
+    ],
+    realWorld: [
+      'Yangi dasturchi birinchi haftada loyiha arxitekturasini AI bilan tez tushunadi',
+      'Frilanser mijoz kod bazasiga kirib, o‘zgartirish qilishdan oldin xarita chizadi',
+      'Jamoa eski, hujjatlanmagan modulni AI yordamida qayta hujjatlaydi',
+    ],
+    practice: {
+      title: 'Notanish kodni xaritalang',
+      task: 'O‘zingiz yozmagan (ochiq kodli yoki jamoadoshingizniki) bir modulni tanlang va yuqoridagi promptni ishlatib uning arxitekturasini tushuntirtiring.',
+      hint: 'Kichik, lekin real modulni tanlang — butun loyihani emas.',
+      sample: 'AI aniqladi: bu modul repository pattern ishlatadi, yangi endpoint qo‘shish uchun 3 ta fayl o‘zgartirish kerak ekan.',
+    },
+    keyTakeaways: [
+      'Umumiy xaritadan boshlab, bitta oqimga chuqurlashing',
+      'AI faqat siz bergan kontekstni biladi — muhim faylni tanlash sizda',
+      'Git tarixi «nega» savoliga ko‘pincha javob beradi',
+    ],
+  },
+
+  {
+    id: 'd-22',
+    courseId: c,
+    order: 22,
+    slug: 'agent-konfiguratsiyasi',
+    title: 'Coding agentlarga konfiguratsiya berish',
+    summary: 'Har safar qayta tushuntirish o‘rniga — bir marta yozib, doim ishlatish.',
+    duration: 9,
+    xp: 50,
+    objectives: [
+      'Loyiha konfiguratsiya faylining vazifasini tushunish',
+      'Yaxshi konfiguratsiya fayli qanday yozilishini bilish',
+      'Konfiguratsiyani vaqt o‘tishi bilan yaxshilashni o‘rganish',
+    ],
+    why: 'Har suhbatda loyiha konvensiyalarini qayta tushuntirish — vaqt yo‘qotish. Konfiguratsiya fayli buni bir marta hal qiladi.',
+    blocks: [
+      {
+        type: 'text',
+        body: 'Ko‘pchilik coding agent (Claude Code, Cursor va h.k.) loyiha ildizidagi maxsus faylni (masalan CLAUDE.md yoki .cursor/rules) avtomatik o‘qiydi va har suhbatda kontekst sifatida ishlatadi.',
+      },
+      { type: 'heading', body: 'Nima yozish kerak' },
+      {
+        type: 'table',
+        head: ['Bo‘lim', 'Misol'],
+        rows: [
+          ['Texnologiya va konvensiya', 'React + TypeScript, CSS Modules, funksional komponentlar'],
+          ['Buyruqlar', 'Test: npm test. Build: npm run build. Lint: npm run lint'],
+          ['Qat’iy qoidalar', '«any» tipini ishlatma, har PR uchun test yoz'],
+          ['Loyiha tuzilishi', 'src/features/ har modul o‘zining komponenti, testi va state’ini saqlaydi'],
+          ['Nima qilmaslik kerak', 'Migratsiyasiz baza sxemasini o‘zgartirma, .env ga tegma'],
+        ],
+      },
+      {
+        type: 'code',
+        lang: 'text',
+        body: '# Loyiha qoidalari\n\n## Stack\nReact 19, TypeScript, Vite, CSS Modules\n\n## Buyruqlar\n- Test: npm test\n- Lint: npm run lint\n- Build: npm run build\n\n## Qat\'iy qoidalar\n- "any" tipidan foydalanma\n- Har yangi funksiya uchun test yoz\n- Komponent props’lari uchun TypeScript interfeys yoz\n\n## Qilmaslik kerak\n- .env fayliga tegma\n- Migratsiyasiz baza sxemasini o\'zgartirma\n- package.json ga so\'ralmagan kutubxona qo\'shma',
+      },
+      {
+        type: 'callout',
+        tone: 'success',
+        title: 'Qisqa va aniq — uzun emas',
+        body: 'Konfiguratsiya fayli har suhbatga kontekst sifatida yuklanadi. Juda uzun fayl context window’ni band qiladi — faqat haqiqatan takrorlanadigan qoidalarni yozing.',
+      },
+      {
+        type: 'callout',
+        tone: 'warn',
+        title: 'Vaqt o‘tishi bilan yangilang',
+        body: 'Agent bir xil xatoni takrorlasa — bu ko‘pincha konfiguratsiyada shu qoida yo‘qligi belgisi. Xatoni tuzatgandan keyin qoidani faylga qo‘shing.',
+      },
+      {
+        type: 'callout',
+        tone: 'success',
+        title: 'Level 4 tugadi',
+        body: 'Endi Real Project Lab (/projects) da loyihalarni sinang yoki Level 5 — AI for Work ga o’ting.',
+      },
+    ],
+    realWorld: [
+      'Jamoa umumiy CLAUDE.md fayli bilan barcha a’zolar bir xil konvensiyada ishlaydi',
+      'Yangi loyihaga qo‘shilgan dasturchi konfiguratsiya faylini o‘qib, qoidalarni tez o‘zlashtiradi',
+      'Agent takroriy xato qilgan joyga qoida qo‘shilib, xato qaytmaydi',
+    ],
+    practice: {
+      title: 'O‘z loyihangiz uchun konfiguratsiya yozing',
+      task: 'Joriy (yoki xayoliy) loyihangiz uchun yuqoridagi shablon asosida konfiguratsiya fayli yozing: stack, buyruqlar, qat’iy qoidalar, qilmaslik kerak bo‘lganlar.',
+      hint: 'Agent oxirgi safar takrorlagan xatoni eslang — shuni qoidaga aylantiring.',
+      sample: 'Qoida qo‘shildi: "Har API chaqiruvida xato holatini try/catch bilan ishlash" — chunki agent buni ko‘p marta unutgan edi.',
+    },
+    keyTakeaways: [
+      'Konfiguratsiya fayli — bir marta yozib, doim ishlaydigan kontekst',
+      'Qisqa va aniq qoidalar uzun tushuntirishdan yaxshiroq ishlaydi',
+      'Takroriy xato — konfiguratsiyani yangilash signalidir',
     ],
   },
 ]

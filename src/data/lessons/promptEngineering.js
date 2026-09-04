@@ -1524,12 +1524,6 @@ export const PROMPT_LESSONS = [
           'Natija formati barqaror bo’lsa',
         ],
       },
-      {
-        type: 'callout',
-        tone: 'success',
-        title: 'Level 2 tugadi',
-        body: 'Endi Prompt Lab va Prompt Practice sahifalarida mashq qiling, so’ng Level 3 — AI Tools ga o’ting.',
-      },
     ],
     realWorld: [
       'Jamoa prompt standarti',
@@ -1546,6 +1540,230 @@ export const PROMPT_LESSONS = [
       'Tizimlashtirilgan kutubxona — kuch ko’paytirgich',
       'Har bir prompt — hujjatlashtirilgan karta',
       '3 marta ishlagan prompt — tayyor prompt',
+    ],
+  },
+
+  {
+    id: 'p-24',
+    courseId: c,
+    order: 24,
+    slug: 'chain-of-thought',
+    title: 'Chain-of-Thought — bosqichma-bosqich fikrlash',
+    summary: 'Modelni darrov javob berishga emas, avval fikrlashga undang.',
+    duration: 8,
+    xp: 50,
+    objectives: [
+      'Chain-of-Thought texnikasi qanday ishlashini tushunish',
+      'Uni qachon qo‘llash samarali ekanini bilish',
+      'Oddiy so‘rovni CoT promptiga aylantirishni o‘rganish',
+    ],
+    why: 'Model ham inson kabi — murakkab masalani bosqichlarga bo‘lib yechganda kamroq xato qiladi.',
+    blocks: [
+      {
+        type: 'text',
+        body: 'Chain-of-Thought (CoT) — modeldan yakuniy javobdan oldin oraliq fikrlash qadamlarini ko‘rsatishni so‘rash texnikasi. «Qadam-baqadam o‘yla» kabi oddiy iboraning o‘zi ko‘p hollarda aniqlikni sezilarli oshiradi.',
+      },
+      {
+        type: 'compare',
+        bad: {
+          title: 'To‘g‘ridan-to‘g‘ri javob so‘rash',
+          body: '«Bu masalaning javobi nima?» — model darhol, ba’zan shoshilib javob beradi.',
+        },
+        good: {
+          title: 'Fikrlashga undash',
+          body: '«Qadam-baqadam o‘ylab, har bosqichni yozib, keyin yakuniy javobni ber» — model oraliq mantiqni ko‘rsatadi.',
+        },
+      },
+      { type: 'heading', body: 'Ikki turi' },
+      {
+        type: 'table',
+        head: ['Tur', 'Qanday ishlaydi', 'Qachon foydali'],
+        rows: [
+          ['Zero-shot CoT', '«Qadam-baqadam o‘yla» iborasini qo‘shish', 'Tez, oddiy, ko‘p vazifada ishlaydi'],
+          ['Few-shot CoT', 'Fikrlash namunasi bilan 1-2 misol berish', 'Murakkab, o‘ziga xos mantiq talab qilganda'],
+        ],
+      },
+      {
+        type: 'code',
+        lang: 'text',
+        body: 'Quyidagi masalani yech. Qadam-baqadam o\'yla:\n1. Avval berilganlarni ajrat\n2. Qaysi formula/mantiq kerakligini aniqla\n3. Har qadamni hisobla\n4. Yakuniy javobni alohida qatorda ber\n\nMASALA:\n{{masala}}',
+      },
+      {
+        type: 'callout',
+        tone: 'warn',
+        title: 'Har vazifaga kerak emas',
+        body: 'Oddiy, bir qadamli savolda CoT faqat javobni cho‘zadi va xarajatni oshiradi. Ko‘p bosqichli mantiq, hisob-kitob yoki qaror qabul qilishda eng foydali.',
+      },
+      {
+        type: 'callout',
+        tone: 'success',
+        title: 'Bonus: xatoni topish osonlashadi',
+        body: 'Oraliq qadamlar ko‘rinib tursa, model qayerda xato qilganini aniqlash va tuzatish ancha oson bo‘ladi.',
+      },
+    ],
+    realWorld: [
+      'Moliyaviy hisob-kitobda har bosqichni ko‘rsatib, xatoni tekshirish',
+      'Ko‘p shartli mantiqiy masalada (agar-unda) qadamlarni alohida ko‘rish',
+      'Kod arxitekturasi tanlovida trade-off’larni bosqichma-bosqich solishtirish',
+    ],
+    practice: {
+      title: 'Promptni CoT’ga aylantiring',
+      task: 'Oddiy, to‘g‘ridan-to‘g‘ri savol shaklidagi promptingizni oling va unga «qadam-baqadam o‘yla» ko‘rsatmasini qo‘shib qayta yozing.',
+      hint: 'Ko‘p shartli yoki hisob-kitob talab qiladigan savol tanlang — farq shu yerda sezilarli.',
+      sample: 'Oldin: «Qaysi tarif rejasi arzon?» Keyin: «Har tarifning oylik va yillik narxini hisobla, keyin solishtirib, arzonini tanla — qadamlarni ko‘rsat.»',
+    },
+    keyTakeaways: [
+      'CoT modelni oraliq fikrlash qadamlarini ko‘rsatishga undaydi',
+      'Ko‘p bosqichli, mantiqiy vazifalarda eng katta farqni beradi',
+      'Oddiy savolda ortiqcha — narx va uzunlikni oshiradi',
+    ],
+  },
+
+  {
+    id: 'p-25',
+    courseId: c,
+    order: 25,
+    slug: 'meta-prompting',
+    title: 'Meta-prompting — AI’dan prompt yozdirish',
+    summary: 'Eng yaxshi prompt yozuvchi — ko‘pincha AI’ning o‘zi.',
+    duration: 7,
+    xp: 50,
+    objectives: [
+      'Meta-prompting nima ekanini tushunish',
+      'AI’dan prompt yaratish va yaxshilashni so‘rashni o‘rganish',
+      'Natijani tanqidiy tekshirish odatini shakllantirish',
+    ],
+    why: 'Prompt yozish — o‘zi bir ko‘nikma. AI ko‘p prompt namunasini «ko‘rgan» — undan boshlang‘ich qoralama olish vaqtni tejaydi.',
+    blocks: [
+      {
+        type: 'text',
+        body: 'Meta-prompting — AI’dan boshqa prompt yaratish, tahlil qilish yoki yaxshilashni so‘rash. Siz vazifani tasvirlaysiz, AI esa professional strukturaga ega prompt taklif qiladi.',
+      },
+      { type: 'heading', body: 'Uch foydalanish usuli' },
+      {
+        type: 'steps',
+        items: [
+          { title: 'Noldan yaratish', body: 'Vazifani tasvirlab, to‘liq prompt tuzishni so‘rash.' },
+          { title: 'Mavjudini yaxshilash', body: 'Ishlab turgan promptni berib, kuchsiz tomonlarini so‘rash.' },
+          { title: 'Boshqa uslubga moslash', body: 'Bir formatdagi promptni boshqa vazifaga moslashtirish.' },
+        ],
+      },
+      {
+        type: 'code',
+        lang: 'text',
+        body: 'Sen prompt engineering mutaxassisisan.\n\nMENGA KERAK: {{vazifa tavsifi}}\n\nQuyidagi elementlarni o\'z ichiga olgan professional prompt tuz:\n- Rol\n- Kontekst\n- Aniq vazifa\n- Cheklovlar\n- Natija formati\n\nPromptni tayyor holda ber, tushuntirish yozma.',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        title: 'Tanqidiy tekshirish so‘rovi',
+        body: '«Ushbu promptdagi eng zaif 3 joyni top va nega zaifligini tushuntir» — bu so‘rov ko‘pincha o‘z-o‘zingiz payqamagan kamchilikni ko‘rsatadi.',
+      },
+      {
+        type: 'callout',
+        tone: 'warn',
+        title: 'Ko‘r-ko‘rona ishlatmang',
+        body: 'AI taklif qilgan promptni albatta sinab ko‘ring. Ba’zan struktura chiroyli, lekin real vazifaga to‘liq mos kelmasligi mumkin.',
+      },
+    ],
+    realWorld: [
+      'Yangi vazifa uchun boshlang‘ich prompt qoralamasini bir necha soniyada olish',
+      'Jamoada ishlatilayotgan eski promptni yangi vositaga moslashtirish',
+      'O‘z yozgan promptingizni AI’ga tanqid qildirib, kamchilikni topish',
+    ],
+    practice: {
+      title: 'AI’ga prompt yozdiring',
+      task: 'O‘zingizga kerak bo‘lgan real vazifani tasvirlab, AI’dan to‘liq prompt tuzishni so‘rang. Keyin uni sinab, natijani baholang.',
+      hint: 'Vazifani imkon qadar aniq tasvirlang — noaniq tavsif noaniq prompt beradi.',
+      sample: 'So‘rov: «Mijoz shikoyatlarini ohangiga qarab tasniflaydigan prompt kerak». AI to‘liq rol+kontekst+format bilan prompt tuzib berdi.',
+    },
+    keyTakeaways: [
+      'AI’dan boshlang‘ich prompt qoralamasini olish vaqtni tejaydi',
+      'Yaratilgan promptni albatta sinab, tekshiring',
+      '«Zaif joyni top» so‘rovi promptni sezilarli yaxshilaydi',
+    ],
+  },
+
+  {
+    id: 'p-26',
+    courseId: c,
+    order: 26,
+    slug: 'kop-bosqichli-suhbat',
+    title: 'Ko‘p bosqichli suhbatni boshqarish',
+    summary: 'Uzun suhbat — yangi imkoniyat va yangi xavf bir vaqtda.',
+    duration: 8,
+    xp: 50,
+    objectives: [
+      'Ko‘p bosqichli suhbatning context window’ga ta’sirini tushunish',
+      'Uzun suhbatda sifatni saqlash strategiyalarini bilish',
+      'Qachon yangi suhbat boshlash kerakligini aniqlash',
+    ],
+    why: 'Bitta savol-javob va ko‘p bosqichli muloqot — butunlay boshqa mahorat. Uzun suhbat boshqarilmasa, sifat asta pasayadi.',
+    blocks: [
+      { type: 'heading', body: 'Uzun suhbatda nima o‘zgaradi' },
+      {
+        type: 'list',
+        items: [
+          'Butun tarix har safar context window’ga qayta yuklanadi — narx va vaqt o‘sadi',
+          '«Lost in the middle» effekti — suhbat o‘rtasidagi ma’lumot unutilishi mumkin',
+          'Eski, endi kerak bo‘lmagan kontekst yangi javobga aralashishi mumkin',
+          'Ziddiyatli ko‘rsatmalar (avval aytilgan, keyin unutilgan) chalkashlik keltiradi',
+        ],
+      },
+      {
+        type: 'table',
+        head: ['Vaziyat', 'Strategiya'],
+        rows: [
+          ['Mavzu butunlay o‘zgardi', 'Yangi suhbat boshlang'],
+          ['Suhbat juda uzun, sekinlashdi', 'Muhim xulosalarni yig‘ib, yangi suhbatga «xotira» sifatida bering'],
+          ['Bir loyihada uzoq ishlayapsiz', 'Har asosiy bosqichda qisqa xulosa so‘rang va saqlang'],
+          ['Model eski ko‘rsatmani unutgandek', 'Muhim qoidani suhbat oxirida takrorlang'],
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        title: 'Xulosalash texnikasi',
+        body: 'Uzun suhbat oxirida «Shu suhbatdagi asosiy qarorlar va kontekstni 5 qatorda xulosala» deb so‘rang — bu xulosani yangi suhbatga kontekst sifatida ko‘chirish mumkin.',
+      },
+      {
+        type: 'code',
+        lang: 'text',
+        body: 'OLDINGI SUHBAT XULOSASI:\n{{oldingi suhbatdan olingan xulosa}}\n\nYuqoridagi kontekstni hisobga olib, davom et:\n{{yangi so\'rov}}',
+      },
+      {
+        type: 'compare',
+        bad: {
+          title: 'Cheksiz bitta suhbat',
+          body: 'Haftalar davomida bitta suhbatda turli mavzularni aralashtirib davom ettirish.',
+        },
+        good: {
+          title: 'Bosqichli boshqaruv',
+          body: 'Har katta bosqich yakunida xulosa olib, kerak bo‘lganda toza suhbat boshlash.',
+        },
+      },
+      {
+        type: 'callout',
+        tone: 'success',
+        title: 'Level 2 tugadi',
+        body: 'Endi Prompt Lab va Prompt Practice sahifalarida mashq qiling, so’ng Level 3 — AI Tools ga o’ting.',
+      },
+    ],
+    realWorld: [
+      'Uzoq loyiha rejalashtirishda har hafta yangi suhbat, oldingi xulosa bilan boshlash',
+      'Ko‘p kunlik kod refactoring loyihasida asosiy qarorlarni xulosalab saqlash',
+      'Mijoz bilan uzoq muddatli maslahat suhbatida mavzu almashganda yangi suhbat ochish',
+    ],
+    practice: {
+      title: 'Suhbatingizni xulosalang',
+      task: 'Eng uzun AI suhbatingizni oching va undan «asosiy qarorlar va kontekstni 5 qatorda xulosala» deb so‘rang. Xulosa naqadar aniq chiqqanini baholang.',
+      hint: 'Agar xulosa muhim narsani tushirib qoldirgan bo‘lsa, bu suhbat allaqachon juda uzun bo‘lib ketganini bildiradi.',
+      sample: 'Xulosa: «Loyiha — React admin panel, TypeScript, CSS Modules ishlatiladi, autentifikatsiya JWT bilan, hozir dashboard sahifasi ustida ishlanmoqda».',
+    },
+    keyTakeaways: [
+      'Uzun suhbat narxni oshiradi va sifatni pasaytirishi mumkin',
+      'Muhim qarorlarni xulosalab, yangi suhbatga ko‘chirish mumkin',
+      'Mavzu butunlay o‘zgarsa — yangi suhbat ochish eng toza yechim',
     ],
   },
 ]

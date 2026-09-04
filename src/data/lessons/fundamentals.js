@@ -1288,4 +1288,305 @@ export const FUNDAMENTALS_LESSONS = [
       'Verifikatsiya va domen bilimi qadrlanadi',
     ],
   },
+
+  {
+    id: 'f-19',
+    courseId: c,
+    order: 19,
+    slug: 'multimodal-ai',
+    title: 'Multimodal AI',
+    summary: 'Matn, rasm, ovoz va videoni bir vaqtda tushunadigan model.',
+    duration: 7,
+    xp: 50,
+    objectives: [
+      'Multimodal AI nima ekanini tushunish',
+      'Unimodal va multimodal model farqini bilish',
+      'Multimodal imkoniyatning real chegaralarini aniqlash',
+    ],
+    why: 'Dunyo faqat matndan iborat emas. Multimodal model — AI’ni haqiqiy hayotga yaqinlashtirgan eng katta sakrashlardan biri.',
+    blocks: [
+      {
+        type: 'text',
+        body: 'Dastlabki LLM’lar faqat matn bilan ishlagan: matn kiradi, matn chiqadi. Multimodal model esa rasm, ovoz va videoni ham «o‘qiy» va ba’zan «yarata» oladi — bularning barchasini bitta model ichida.',
+      },
+      { type: 'heading', body: 'Modallik turlari' },
+      {
+        type: 'table',
+        head: ['Modallik', 'Kirish misoli', 'Chiqish misoli'],
+        rows: [
+          ['Matn → Matn', 'Savol, hujjat', 'Javob, xulosa'],
+          ['Rasm → Matn', 'Skrinshot, chizma, jadval rasmi', 'Tavsif, tahlil, ma’lumot ajratish'],
+          ['Matn → Rasm', 'Tavsif', 'Yaratilgan rasm'],
+          ['Audio → Matn', 'Ovoz yozuvi', 'Transkripsiya, xulosa'],
+          ['Video → Matn', 'Video fayl', 'Sahna tavsifi, vaqt belgili xulosa'],
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        title: 'Nega bu muhim',
+        body: 'Ko‘p real vazifa modal aralash: skrinshot + savol, jadval rasmi + tahlil so‘rovi, ovozli eslatma + email yozish. Multimodal model bularni bitta suhbatda qiladi.',
+      },
+      { type: 'heading', body: 'Real chegaralar' },
+      {
+        type: 'list',
+        items: [
+          'Rasmdagi mayda matnni yoki noaniq grafikni har doim to‘g‘ri o‘qimaydi',
+          'Video tushunish hali matnga qaraganda kamroq aniq',
+          'Rasm ichida sonlarni aniq hisoblash (masalan, odamlarni sanash) xato berishi mumkin',
+          'Chiqish sifatida rasm/video generatsiyasi matn generatsiyasiga qaraganda ko‘proq «omad»ga bog‘liq',
+        ],
+      },
+      {
+        type: 'compare',
+        bad: {
+          title: 'Noto‘g‘ri ishonch',
+          body: 'Rasmdagi jadvaldan olingan raqamlarga hujjatdagidek 100% ishonish.',
+        },
+        good: {
+          title: 'To‘g‘ri yondashuv',
+          body: 'Rasmdan olingan muhim raqamlarni asl manba bilan tasdiqlash.',
+        },
+      },
+    ],
+    realWorld: [
+      'Xarajat chekini rasmga olib, AI’dan summani ajratishni so‘rash',
+      'Qo‘lda chizilgan diagrammani rasmga olib, tushuntirishni so‘rash',
+      'Uchrashuv ovoz yozuvidan xulosa va vazifalar olish',
+    ],
+    practice: {
+      title: 'Modallikni aniqlang',
+      task: 'Kundalik hayotingizdan 3 ta vazifani toping — har birida qaysi modallik (matn, rasm, ovoz) ishtirok etadi va AI qaysi modallikda javob berishi kerak.',
+      hint: 'Skrinshot, ovozli xabar yoki jadval rasmi bilan bog‘liq vaziyatlarni eslang.',
+      sample: 'Vazifa: chek rasmidan xarajatlarni jadvalga tushirish. Kirish: rasm. Chiqish: matn/jadval.',
+    },
+    keyTakeaways: [
+      'Multimodal model bir nechta modallikni bitta suhbatda birlashtiradi',
+      'Rasm/video tushunish matnga qaraganda kamroq aniq bo‘lishi mumkin',
+      'Muhim raqam va faktlarni asl manbadan tasdiqlang',
+    ],
+  },
+
+  {
+    id: 'f-20',
+    courseId: c,
+    order: 20,
+    slug: 'reasoning-modellar',
+    title: 'Reasoning modellar — «o‘ylaydigan» AI',
+    summary: 'Darhol javob bermasdan, avval «fikrlaydigan» yangi model turi.',
+    duration: 7,
+    xp: 50,
+    objectives: [
+      'Reasoning modelning oddiy modeldan farqini tushunish',
+      'Qachon reasoning model kerakligini aniqlash',
+      'Reasoning vaqtining narx va tezlikka ta’sirini bilish',
+    ],
+    why: 'Barcha vazifa uzoq «fikrlashni» talab qilmaydi — lekin ba’zilari uchun bu farq hal qiluvchi.',
+    blocks: [
+      {
+        type: 'text',
+        body: 'Oddiy model savolni o‘qib, darhol javob yozishni boshlaydi. Reasoning model esa javobdan oldin ichki «fikrlash» bosqichidan o‘tadi — masalani bo‘laklarga bo‘ladi, variantlarni tekshiradi, keyin yakuniy javobni beradi.',
+      },
+      { type: 'heading', body: 'Farqi qayerda sezilarli' },
+      {
+        type: 'table',
+        head: ['Vazifa turi', 'Oddiy model', 'Reasoning model'],
+        rows: [
+          ['Oddiy savol-javob', 'Tez va yetarli', 'Ortiqcha — vaqt behuda'],
+          ['Ko‘p bosqichli matematik masala', 'Xato qilishi mumkin', 'Bosqichlarni tekshirib boradi'],
+          ['Murakkab kod arxitekturasi', 'Yuzaki yechim', 'Muqobil variantlarni solishtiradi'],
+          ['Mantiqiy jumboq/strategiya', 'Ko‘pincha yetarli emas', 'Aniq yaxshiroq natija'],
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'warn',
+        title: 'Narx va tezlik narxi bor',
+        body: 'Reasoning — qo‘shimcha «fikrlash» tokenlarini sarflaydi. Bu javobni sekinlashtiradi va qimmatlashtiradi. Oddiy savolga reasoning modelni ishlatish — ortiqcha xarajat.',
+      },
+      { type: 'heading', body: 'Qachon tanlash kerak' },
+      {
+        type: 'steps',
+        items: [
+          { title: 'Vazifa ko‘p bosqichlimi?', body: 'Bir nechta qadam, oraliq hisob-kitob bo‘lsa — ha.' },
+          { title: 'Xato narxi yuqorimi?', body: 'Noto‘g‘ri javob qimmatga tushsa (kod, moliya, huquq) — ha.' },
+          { title: 'Tezlik muhimmi?', body: 'Jonli chat, tezkor javob kerak bo‘lsa — oddiy model.' },
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'success',
+        title: 'Amaliy maslahat',
+        body: 'Kundalik yozish, tarjima va oddiy savollar uchun oddiy model yetarli. Murakkab rejalashtirish, kod arxitekturasi va ko‘p qadamli tahlil uchun reasoning modelga o‘ting.',
+      },
+    ],
+    realWorld: [
+      'Murakkab algoritmik masalani yechishda reasoning model afzal',
+      'Oddiy email yozishda oddiy model tezroq va yetarli',
+      'Ko‘p bosqichli biznes strategiyasini tahlil qilishda reasoning model chuqurroq natija beradi',
+    ],
+    practice: {
+      title: 'Vazifani tasniflang',
+      task: '5 ta o‘zingiz bajaradigan AI vazifasini ro‘yxatlang va har biriga «oddiy model yetarli» yoki «reasoning kerak» deb belgi qo‘ying.',
+      hint: 'Vazifada nechta oraliq qadam borligini sanang.',
+      sample: 'Email yozish — oddiy. Ko‘p shartli narxlash strategiyasini hisoblash — reasoning kerak.',
+    },
+    keyTakeaways: [
+      'Reasoning model javobdan oldin ichki fikrlash bosqichidan o‘tadi',
+      'Bu tezlik va narx hisobiga keladi — har vazifaga kerak emas',
+      'Ko‘p bosqichli, yuqori xavfli vazifalarda eng katta farqni beradi',
+    ],
+  },
+
+  {
+    id: 'f-21',
+    courseId: c,
+    order: 21,
+    slug: 'ochiq-yopiq-modellar',
+    title: 'Ochiq va yopiq modellar',
+    summary: 'Kim modelni ko‘ra oladi, kim uni o‘zgartira oladi — va bu nega ahamiyatli.',
+    duration: 6,
+    xp: 50,
+    objectives: [
+      'Ochiq (open-weight) va yopiq modellar farqini bilish',
+      'Har birining afzallik va kamchiligini aniqlash',
+      'Loyiha uchun qaysi turi mosligini baholash',
+    ],
+    why: 'Bu tanlov — nafaqat texnik, balki narx, maxfiylik va nazorat bo‘yicha strategik qaror.',
+    blocks: [
+      { type: 'heading', body: 'Asosiy farq' },
+      {
+        type: 'table',
+        head: ['', 'Yopiq model', 'Ochiq (open-weight) model'],
+        rows: [
+          ['Kirish', 'Faqat API orqali', 'Yuklab olib, o‘z serveringizda ishga tushirish mumkin'],
+          ['Narx modeli', 'Har so‘rov uchun to‘lov', 'Faqat infratuzilma xarajati'],
+          ['Sozlash erkinligi', 'Cheklangan', 'To‘liq — fine-tuning, o‘zgartirish mumkin'],
+          ['Sifat (odatda)', 'Eng yuqori daraja tezroq yetadi', 'Orqada, lekin tez yaqinlashadi'],
+          ['Maxfiylik', 'Ma’lumot provayderga boradi', 'Ma’lumot o‘z infratuzilmangizda qoladi'],
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        title: '«Ochiq» so‘zi chalg‘itmasin',
+        body: 'Ko‘pchilik «ochiq» model aslida ochiq kodli emas — faqat model og‘irliklari (weights) yuklab olish uchun ochiq. Training ma’lumoti va kodi ko‘pincha yopiq qoladi.',
+      },
+      { type: 'heading', body: 'Qachon qaysi biri' },
+      {
+        type: 'list',
+        items: [
+          'Yopiq model: tez boshlash, eng yuqori sifat, infratuzilma boshqarish shart emas',
+          'Ochiq model: maxfiylik talabi qat’iy, katta hajmda ishlatish, o‘ziga xos fine-tuning kerak bo‘lganda',
+        ],
+      },
+      {
+        type: 'compare',
+        bad: {
+          title: 'Faqat brendga qarab tanlash',
+          body: '«Hammaning tilida bo‘lgani» uchun modelni tanlash, real ehtiyojni hisobga olmasdan.',
+        },
+        good: {
+          title: 'Ehtiyojga qarab tanlash',
+          body: 'Maxfiylik, narx va sozlash erkinligi talabini aniq belgilab, shunga mos yondashuvni tanlash.',
+        },
+      },
+    ],
+    realWorld: [
+      'Bank o‘z serverida ochiq model ishga tushiradi — ma’lumot tashqariga chiqmaydi',
+      'Startup tezkor ishga tushish uchun yopiq model API’sidan foydalanadi',
+      'Tadqiqotchi ochiq modelni o‘z ma’lumotiga moslab fine-tuning qiladi',
+    ],
+    practice: {
+      title: 'Tanlovni asoslang',
+      task: 'Xayoliy loyihangiz uchun ochiq yoki yopiq modeldan qaysi birini tanlaysiz? 3 ta sabab bilan asoslang.',
+      hint: 'Maxfiylik, narx va tezlikni alohida ko‘rib chiqing.',
+      sample: 'Tibbiy ma’lumot bilan ishlaydigan loyiha — ochiq model, chunki maxfiy ma’lumot tashqariga chiqmasligi shart.',
+    },
+    keyTakeaways: [
+      'Yopiq model — tezkor boshlash va yuqori sifat',
+      'Ochiq model — nazorat, maxfiylik va moslashuvchanlik',
+      'Tanlov texnik emas, strategik qaror',
+    ],
+  },
+
+  {
+    id: 'f-22',
+    courseId: c,
+    order: 22,
+    slug: 'bias-va-adolat',
+    title: 'AI’da bias va adolat muammosi',
+    summary: 'Model — ma’lumotning oynasi. Ma’lumot xolis bo‘lmasa, model ham bo‘lmaydi.',
+    duration: 7,
+    xp: 50,
+    objectives: [
+      'Bias qayerdan kelib chiqishini tushunish',
+      'Bias’ning real oqibatlarini bilish',
+      'Bias ta’sirini kamaytirish usullarini o‘rganish',
+    ],
+    why: 'AI qarorlari real odamlarga ta’sir qiladi — ish, kredit, tibbiy tashxis. Bias shu yerda haqiqiy zarar keltiradi.',
+    blocks: [
+      { type: 'heading', body: 'Bias qayerdan keladi' },
+      {
+        type: 'list',
+        items: [
+          'Training ma’lumoti — internet matni, u esa jamiyatdagi stereotiplarni ham o‘zida saqlaydi',
+          'Ma’lumot muvozanati — ba’zi til, madaniyat yoki guruhlar internetda kamroq vakillik qilingan',
+          'Baholovchi tanlovi — modelni «yaxshi» deb baholagan odamlarning o‘z qarashlari',
+        ],
+      },
+      {
+        type: 'table',
+        head: ['Bias turi', 'Misol'],
+        rows: [
+          ['Til/madaniyat bias', 'Kam so‘zlashiladigan tillarda sifat pastroq'],
+          ['Kasb-jins stereotipi', '«Muhandis» so‘ziga faqat bitta jinsni bog‘lash'],
+          ['Tarixiy ma’lumot bias', 'O‘tmishdagi noadolatli qarorlarni «normal» deb o‘rganish'],
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'danger',
+        title: 'Real oqibat',
+        body: 'AI resume skrining, kredit baholash yoki tibbiy tashxis qo‘yishda ishlatilsa, bias — statistik xatolik emas, kimningdir ishi yoki sog‘lig‘iga ta’sir qiluvchi noadolat.',
+      },
+      { type: 'heading', body: 'Bias ta’sirini kamaytirish' },
+      {
+        type: 'steps',
+        items: [
+          { title: 'Ogohlik', body: 'AI javobi «xolis» emas, ma’lumotning aksi ekanini eslang.' },
+          { title: 'Kritik nazar', body: 'Muhim qarorlarda AI natijasini tanqidiy tekshiring.' },
+          { title: 'Xilma-xil manba', body: 'Bir tomonlama xulosa chiqmasin uchun turli manbani solishtiring.' },
+          { title: 'Inson nazorati', body: 'Yuqori xavfli qarorlarda yakuniy so‘z inson bo‘lsin.' },
+        ],
+      },
+      {
+        type: 'compare',
+        bad: {
+          title: 'Xavfli foydalanish',
+          body: 'AI’ga «eng yaxshi nomzodni tanla» deb, tanlovni to‘liq unga topshirish.',
+        },
+        good: {
+          title: 'Mas’uliyatli foydalanish',
+          body: 'AI’dan dastlabki saralashda yordam olib, yakuniy qarorni inson va aniq mezon asosida qabul qilish.',
+        },
+      },
+    ],
+    realWorld: [
+      'HR bo‘limi AI skrininggini yakuniy qaror emas, dastlabki filtr sifatida ishlatadi',
+      'Kredit tashkiloti AI bahosini inson tekshiruvi bilan birga qo‘llaydi',
+      'Tadqiqotchi model javoblarini turli demografik guruhda alohida sinaydi',
+    ],
+    practice: {
+      title: 'Bias’ni qidiring',
+      task: 'AI’dan bir nechta kasb haqida qisqa tavsif yozishini so‘rang va javoblarda stereotip (jins, yosh, millat) borligini tekshiring.',
+      hint: '«Muhandis», «hamshira», «direktor» kabi turli kasblarni sinang.',
+      sample: 'AI barcha «dasturchi» tavsifida erkak olmoshini ishlatdi — bu bias namunasi.',
+    },
+    keyTakeaways: [
+      'Model — ma’lumotning oynasi, xolis hakam emas',
+      'Yuqori xavfli qarorlarda AI yakuniy hukm bo‘lmasligi kerak',
+      'Xilma-xil tekshiruv va inson nazorati bias ta’sirini kamaytiradi',
+    ],
+  },
 ]

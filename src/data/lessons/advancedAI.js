@@ -1047,12 +1047,6 @@ export const ADVANCED_LESSONS = [
         title: 'Loyihalash tartibi',
         body: '1) Eng oddiy ishlaydigan versiya (bitta prompt) 2) Eval to’plami 3) Sifat muammolarini o’lchash 4) Faqat kerak bo’lgan murakkablikni qo’shish. Teskari tartib — ortiqcha muhandislik.',
       },
-      {
-        type: 'callout',
-        tone: 'info',
-        title: 'Kurs tugadi 🎉',
-        body: 'Endi Projects bo’limida real loyiha quring va Certificate sahifasidan sertifikatingizni oling. Eng muhimi — o’rgangan narsani bugundan boshlab qo’llang.',
-      },
     ],
     realWorld: [
       'SaaS mahsulotga AI qo’shish',
@@ -1069,6 +1063,400 @@ export const ADVANCED_LESSONS = [
       'Qatlamlarni ajrating',
       'Oddiydan boshlang, eval bilan o’lchang',
       'Production ro’yxatini bosqichma-bosqich yoping',
+    ],
+  },
+
+  {
+    id: 'a-16',
+    courseId: c,
+    order: 16,
+    slug: 'model-tanlash',
+    title: 'Model tanlash va benchmarking',
+    summary: 'Har vazifaga eng kuchli model emas, eng mos model kerak.',
+    duration: 10,
+    xp: 50,
+    objectives: [
+      'Model tanlash mezonlarini bilish',
+      'Benchmark raqamlarini tanqidiy baholash',
+      'Narx/tezlik/sifat muvozanatini topish',
+    ],
+    why: 'Noto’g’ri model tanlovi — yoki xarajatni keraksiz oshiradi, yoki sifatni kerakli darajadan pastga tushiradi.',
+    blocks: [
+      { type: 'heading', body: 'Tanlov mezonlari' },
+      {
+        type: 'table',
+        head: ['Mezon', 'Nima uchun muhim'],
+        rows: [
+          ['Sifat', 'Murakkab fikrlash va nozik vazifalarda farq katta'],
+          ['Latency (tezlik)', 'Real-time chat va agent zanjirida sezilarli'],
+          ['Narx (input/output token)', 'Yuqori hajmda kichik farq katta summaga aylanadi'],
+          ['Context window', 'Uzun hujjat yoki ko’p bosqichli suhbat uchun'],
+          ['Multimodal qobiliyat', 'Rasm, audio, video kirish kerak bo’lsa'],
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'warn',
+        title: 'Benchmark raqamiga ko’r-ko’rona ishonmang',
+        body: 'Ommaviy benchmarklar ba’zan modelning training ma’lumotiga «sizib qolgan» bo’ladi (contamination) — yuqori ball haqiqiy qobiliyatni har doim aks ettirmaydi. Har doim o’z real vazifangizda sinang.',
+      },
+      { type: 'heading', body: 'Amaliy qaror ketma-ketligi' },
+      {
+        type: 'steps',
+        items: [
+          { title: '1. Vazifa turini aniqlang', body: 'Oddiy tasniflash/formatlash → arzon-tez model. Murakkab fikrlash/kod → kuchli model.' },
+          { title: '2. Latency talabini belgilang', body: 'Foydalanuvchi jonli kutayotgan bo’lsa, tezlik sifatdan ustun bo’lishi mumkin.' },
+          { title: '3. Byudjetni hisoblang', body: 'Kunlik/oylik so’rov hajmini narxga ko’paytirib, real xarajatni ko’ring.' },
+          { title: '4. Real vazifada sinang', body: 'O’z promptlaringiz va ma’lumotlaringiz bilan 2-3 modelni taqqoslang.' },
+        ],
+      },
+      {
+        type: 'table',
+        head: ['Model klassi', 'Tipik holat'],
+        rows: [
+          ['Flagship / frontier', 'Murakkab fikrlash, kod arxitekturasi, nozik vazifalar'],
+          ['O’rta daraja', 'Kundalik chat, yozish, oddiy tahlil'],
+          ['Kichik / tez', 'Tasniflash, qisqa formatlash, yuqori hajmli oddiy so’rov'],
+        ],
+      },
+      {
+        type: 'compare',
+        bad: {
+          title: 'Har doim eng kuchli model',
+          body: 'Barcha so’rov uchun eng qimmat, eng kuchli modelni ishlatish — oddiy vazifada ham.',
+        },
+        good: {
+          title: 'Vazifaga mos model',
+          body: 'Murakkablikka qarab model routing: oddiy so’rovga arzon model, murakkabiga kuchli model.',
+        },
+      },
+    ],
+    realWorld: [
+      'Support chatboti oddiy savollarni kichik modelga, murakkabini kattasiga yo’naltiradi',
+      'Kod review agenti arxitektura tahlili uchun flagship, formatlash uchun kichik model ishlatadi',
+      'Kontent tasniflash tizimi yuqori hajmda eng arzon model bilan ishlaydi',
+    ],
+    practice: {
+      title: 'Ikki modelni taqqoslang',
+      task: 'Bitta real promptni 2 xil model klassida (kuchli va tez) sinab ko’ring. Sifat, tezlik va narxni jadvalga tushiring.',
+      hint: 'Bir xil promptni, bir xil kirish bilan sinang — faqat modelni almashtiring.',
+      sample: 'Kuchli model: sifat 9/10, 4 soniya, qimmat. Tez model: sifat 7/10, 1 soniya, arzon — bu vazifa uchun tez model yetarli.',
+    },
+    keyTakeaways: [
+      'Eng kuchli model har doim eng to’g’ri tanlov emas',
+      'Benchmark — boshlang’ich nuqta, yakuniy qaror emas',
+      'Murakkablikka qarab model routing xarajatni sezilarli tejaydi',
+    ],
+  },
+
+  {
+    id: 'a-17',
+    courseId: c,
+    order: 17,
+    slug: 'fine-tuning',
+    title: 'Fine-tuning: qachon prompt yoki RAG yetarli emas',
+    summary: 'Uchinchi yo’l — lekin eng qimmat va eng kam hollarda kerak bo’ladigan yo’l.',
+    duration: 11,
+    xp: 50,
+    objectives: [
+      'Prompt engineering, RAG va fine-tuning farqini bilish',
+      'Fine-tuning haqiqatan kerak bo’lgan holatlarni aniqlash',
+      'Fine-tuning xarajati va murakkabligini baholash',
+    ],
+    why: 'Fine-tuning eng «kuchli» yechim tuyuladi, lekin ko’p holda RAG yoki yaxshiroq prompt arzonroq va tezroq natija beradi.',
+    blocks: [
+      { type: 'heading', body: 'Uchta yondashuv' },
+      {
+        type: 'table',
+        head: ['Yondashuv', 'Nima o’zgaradi', 'Qachon yetarli'],
+        rows: [
+          ['Prompt engineering', 'Hech narsa — faqat kirish matni', 'Ko’pchilik vazifa uchun birinchi tanlov'],
+          ['RAG', 'Modelga tashqi bilim qo’shiladi', 'Yangi/dinamik ma’lumot kerak bo’lganda'],
+          ['Fine-tuning', 'Model og’irliklarining o’zi o’zgaradi', 'Uslub, format yoki tor domen chuqur singdirilishi kerak bo’lganda'],
+        ],
+      },
+      { type: 'heading', body: 'Qaror ketma-ketligi' },
+      {
+        type: 'steps',
+        items: [
+          { title: '1. Avval promptni yaxshilang', body: 'Arzon va tez — ko’p muammo shu yerda hal bo’ladi.' },
+          { title: '2. Bilim yetishmasa — RAG qo’shing', body: 'Faktlar, hujjatlar, dolzarb ma’lumot uchun.' },
+          { title: '3. Hali ham yetmasa — fine-tuning', body: 'Uslub qat’iy buzilsa yoki juda tor domen tili kerak bo’lsa.' },
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'warn',
+        title: 'Keng tarqalgan xato',
+        body: 'Fine-tuning’ni «yangi faktlarni o’rgatish» uchun ishlatish — yomon g’oya. RAG buni ancha arzon, tez va yangilanadigan tarzda qiladi. Fine-tuning fakt emas, xatti-harakat va uslubni o’zgartiradi.',
+      },
+      { type: 'heading', body: 'Fine-tuning haqiqatan kerak bo’lgan holatlar' },
+      {
+        type: 'list',
+        items: [
+          'Juda maxsus, qat’iy brend ohangi yoki uslub',
+          'Tor domenli tasniflash (masalan, tibbiy hujjat toifalari)',
+          'Qat’iy formatga ming marta amal qilish kerak bo’lganda',
+          'Kichik modelni katta modelning xatti-harakatiga «distillation» qilish',
+        ],
+      },
+      {
+        type: 'code',
+        lang: 'json',
+        body: '{"messages": [\n  {"role": "user", "content": "Mijoz shikoyati: ..."},\n  {"role": "assistant", "content": "Kompaniya standartiga mos, ohangi va formati qat\'iy javob"}\n]}',
+      },
+      {
+        type: 'callout',
+        tone: 'danger',
+        title: 'Xarajatni kam baholamang',
+        body: 'Sifatli training ma’lumotini tayyorlash, modelni o’qitish va natijani baholash — bir necha kunlik ish emas, doimiy jarayon.',
+      },
+    ],
+    realWorld: [
+      'Yuridik firma qat’iy hujjat formatida javob beruvchi model tayyorlaydi',
+      'Support jamoasi minglab eski tiketdan o’ziga xos tasniflovchi model o’qitadi',
+      'Kompaniya kichik, arzon modelni katta modelning javob uslubiga moslaydi',
+    ],
+    practice: {
+      title: 'Yondashuvni asoslang',
+      task: 'O’z loyihangiz (yoki xayoliy loyiha) uchun prompt engineering, RAG yoki fine-tuning’dan qaysi biri kerakligini tanlab, 3-4 jumlada asoslang.',
+      hint: 'Avval «buni promptni yaxshilash bilan hal qilib bo’lmaydimi?» deb so’rang.',
+      sample: 'Loyiha: mijoz shikoyatlarini tasniflash. Tanlov: RAG emas, fine-tuning — chunki toifalar barqaror va katta hajmda tez, arzon javob kerak.',
+    },
+    keyTakeaways: [
+      'Avval prompt, keyin RAG, oxirida fine-tuning',
+      'Fine-tuning fakt emas — xatti-harakat va uslubni o’zgartiradi',
+      'Xarajat va vaqtni oldindan real baholang',
+    ],
+  },
+
+  {
+    id: 'a-18',
+    courseId: c,
+    order: 18,
+    slug: 'streaming',
+    title: 'Streaming va real-time javoblar',
+    summary: 'Javobni kutish emas, javobning tug‘ilishini ko‘rsatish.',
+    duration: 9,
+    xp: 50,
+    objectives: [
+      'Streaming nima va nega UX uchun muhimligini tushunish',
+      'Streaming’ning texnik oqimini bilish',
+      'Qachon streaming shart emasligini aniqlash',
+    ],
+    why: 'Uzun javobni kutish foydalanuvchi tajribasini yomonlashtiradi — token-by-token ko’rsatish sezilgan tezlikni sezilarli oshiradi.',
+    blocks: [
+      {
+        type: 'compare',
+        bad: {
+          title: 'Kutish holati',
+          body: 'Foydalanuvchi 8 soniya bo’sh ekranga qarab turadi, keyin butun javob birdan chiqadi.',
+        },
+        good: {
+          title: 'Token oqimi',
+          body: 'Javob birinchi so’zdan boshlab ekranda «yozilib» boradi — kutish sezilmaydi.',
+        },
+      },
+      { type: 'heading', body: 'Texnik oqim' },
+      {
+        type: 'steps',
+        items: [
+          { title: '1. Ulanish', body: 'Server-Sent Events yoki WebSocket orqali doimiy kanal ochiladi.' },
+          { title: '2. Chunk’lar', body: 'Model har token/bo’lakni tayyor bo’lishi bilan yuboradi.' },
+          { title: '3. UI yangilanishi', body: 'Har chunk kelganda ekran darhol qo’shimcha matn bilan yangilanadi.' },
+          { title: '4. Uzilish nazorati', body: 'Ulanish uzilsa, qayta ulanish yoki xato holatini ko’rsatish kerak.' },
+        ],
+      },
+      {
+        type: 'table',
+        head: ['Holat', 'Streaming kerakmi?'],
+        rows: [
+          ['Chat interfeysi', 'Ha — kutishni sezilarli qisqartiradi'],
+          ['Fon jarayoni / batch qayta ishlash', 'Yo’q — foydalanuvchi kuzatib turmaydi'],
+          ['Strukturalangan JSON natija', 'Ehtiyotkorlik bilan — qisman JSON parse qilinmaydi'],
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'warn',
+        title: 'JSON va streaming birga qiyin',
+        body: 'Struktura formatlar (JSON) oqim davomida qisman, buzilgan holatda keladi. Maxsus streaming parser ishlatilmasa, natija to’liq kelguncha kutish ma’qulroq.',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        title: 'Fallback rejasi',
+        body: 'Streaming ulanishi ishlamay qolsa, ilova avtomatik oddiy so’rov-javob rejimiga tushishi kerak — foydalanuvchi butunlay javobsiz qolmasin.',
+      },
+    ],
+    realWorld: [
+      'ChatGPT/Claude interfeysidagi «yozilayotgan» matn effekti',
+      'Kod generatsiya agentida fayl o’zgarishlarini jonli ko’rsatish',
+      'Uzun hisobot generatsiyasida progress ko’rsatish',
+    ],
+    practice: {
+      title: 'Ikki UI oqimini chizing',
+      task: 'Bitta AI funksiyangiz uchun streaming va streaming’siz UI holatlarini (loading, qisman natija, xato) chizib yoki tasvirlab chiqing.',
+      hint: 'Xato va uzilish holatini ham unutmang — faqat «baxtli yo’l»ni emas.',
+      sample: 'Streaming: darhol birinchi so’z ko’rinadi. Streaming’siz: 3 soniyalik spinner, keyin to’liq javob.',
+    },
+    keyTakeaways: [
+      'Streaming sezilgan tezlikni oshiradi, haqiqiy tezlikni emas',
+      'Strukturalangan chiqishda streaming maxsus yondashuv talab qiladi',
+      'Fallback rejasisiz streaming — yagona nuqta xatosi',
+    ],
+  },
+
+  {
+    id: 'a-19',
+    courseId: c,
+    order: 19,
+    slug: 'observability',
+    title: 'AI observability: production monitoring',
+    summary: '«Ishladi» va «ishonchli ishladi» orasidagi farq — kuzatuvda.',
+    duration: 10,
+    xp: 50,
+    objectives: [
+      'AI ilovasi uchun kerakli metrikalarni bilish',
+      'Tracing nima ekanini tushunish',
+      'Muammoni tez aniqlaydigan log strukturasini loyihalash',
+    ],
+    why: 'Kuzatuvsiz production AI ilova — qora quti. Nima uchun sekinlashgani yoki xato bergani noma’lum bo’lib qoladi.',
+    blocks: [
+      { type: 'heading', body: 'Kuzatish kerak bo’lgan metrikalar' },
+      {
+        type: 'table',
+        head: ['Metrika', 'Nima uchun'],
+        rows: [
+          ['Latency', 'Foydalanuvchi tajribasi va SLA uchun asosiy ko’rsatkich'],
+          ['Xarajat (token)', 'Byudjetdan chiqib ketishning oldini olish'],
+          ['Xato darajasi', 'Provayder yoki kod muammosini erta ushlash'],
+          ['Foydalanuvchi fikri (feedback)', '👍/👎 — sifatni real foydalanishda o’lchash'],
+          ['Eval balli (vaqt bo’yicha)', 'Model yoki prompt o’zgarishi sifatga ta’sirini kuzatish'],
+        ],
+      },
+      { type: 'heading', body: 'Tracing — bitta so’rovning to’liq yo’li' },
+      {
+        type: 'steps',
+        items: [
+          { title: '1. So’rov keldi', body: 'Foydalanuvchi va vaqt belgisi bilan ID beriladi.' },
+          { title: '2. Retrieval/tool chaqiruvi', body: 'Har chaqiruv, davomiyligi va natijasi bilan loglanadi.' },
+          { title: '3. Model chaqiruvi', body: 'Qaysi model, qancha token, qancha vaqt.' },
+          { title: '4. Post-processing', body: 'Formatlash yoki validatsiya bosqichi.' },
+          { title: '5. Javob', body: 'Umumiy davomiylik va yakuniy status yoziladi.' },
+        ],
+      },
+      {
+        type: 'code',
+        lang: 'json',
+        body: '{\n  "requestId": "req_8f2a",\n  "model": "flagship-v2",\n  "inputTokens": 512,\n  "outputTokens": 340,\n  "latencyMs": 2140,\n  "toolCalls": ["search_docs"],\n  "status": "ok"\n}',
+      },
+      {
+        type: 'callout',
+        tone: 'warn',
+        title: 'Maxfiy ma’lumotni to’liq loglamang',
+        body: 'Foydalanuvchi kirishini to’liq saqlash o’rniga, shaxsiy ma’lumotni (PII) maskalab yoki xeshlab loglang.',
+      },
+      {
+        type: 'callout',
+        tone: 'success',
+        title: 'Anomaliya ogohlantirishi',
+        body: 'Kutilganidan uzun latency, kutilmagan xato ko’payishi yoki xarajat sakrashi uchun avtomatik ogohlantirish sozlang — muammoni foydalanuvchi shikoyatidan oldin bilib oling.',
+      },
+    ],
+    realWorld: [
+      'Support botida xato darajasi oshsa jamoaga darhol xabar boradi',
+      'Prompt yangilanishidan keyin eval balli tushib ketsa avtomatik ogohlantiradi',
+      'Xarajat kunlik limitiga yaqinlashganda ogohlantirish keladi',
+    ],
+    practice: {
+      title: 'Log formatini loyihalang',
+      task: 'O’z loyihangiz uchun minimal log yozuvi formatini yozing: qaysi maydonlar, nima uchun har biri kerak.',
+      hint: 'Muammoni logsiz qanday tekshirgan bo’lardingiz — o’sha savoldan boshlang.',
+      sample: 'requestId, model, latencyMs, tokenCount, errorType, userFeedback.',
+    },
+    keyTakeaways: [
+      'Metrikasiz production AI — qora quti',
+      'Tracing muammoni «qayerda» ekanini ko’rsatadi',
+      'Maxfiy ma’lumotni logda maskalash shart',
+    ],
+  },
+
+  {
+    id: 'a-20',
+    courseId: c,
+    order: 20,
+    slug: 'narx-optimizatsiya',
+    title: 'Narx optimizatsiyasi: caching, batching, routing',
+    summary: 'Xarajat foydalanuvchi soniga proportsional o’sadi — erta optimallashtiring.',
+    duration: 10,
+    xp: 50,
+    objectives: [
+      'Token xarajatini kamaytirish strategiyalarini bilish',
+      'Prompt caching va batching tushunchalarini o’rganish',
+      'Model routing orqali xarajatni optimallashtirish',
+    ],
+    why: 'AI xarajati chiziqli emas, hajm bilan tez o’sadi. Erta optimallashtirish keyingi moliyaviy inqirozning oldini oladi.',
+    blocks: [
+      { type: 'heading', body: 'Xarajat qayerdan chiqadi' },
+      {
+        type: 'table',
+        head: ['Manba', 'Tejash usuli'],
+        rows: [
+          ['Uzun system prompt har so’rovda', 'Prompt caching'],
+          ['Bir xil so’rov qayta-qayta', 'Natija keshi (cache)'],
+          ['Oddiy vazifaga kuchli model', 'Model routing'],
+          ['Keraksiz uzun kontekst', 'Kontekstni qisqartirish/tozalash'],
+        ],
+      },
+      { type: 'heading', body: 'Prompt caching' },
+      {
+        type: 'text',
+        body: 'Ko’p provayderlar promptning o’zgarmas boshlang’ich qismini (masalan, uzun system prompt yoki hujjat) keshlab, keyingi so’rovlarda arzonroq narxda qayta ishlatadi. O’zgarmas qismni promptning boshiga, o’zgaruvchi qismni oxiriga joylashtirish keshni samarali ishlatadi.',
+      },
+      { type: 'heading', body: 'Model routing' },
+      {
+        type: 'steps',
+        items: [
+          { title: '1. Murakkablikni baholang', body: 'Kichik, arzon model yoki oddiy qoida so’rov murakkabligini tasniflaydi.' },
+          { title: '2. Oddiy → arzon model', body: 'Tasniflash, formatlash, qisqa javob.' },
+          { title: '3. Murakkab → kuchli model', body: 'Fikrlash, kod, nozik vazifalar.' },
+          { title: '4. Natijani kuzating', body: 'Chegarani sifat va xarajat ma’lumotiga qarab sozlang.' },
+        ],
+      },
+      {
+        type: 'code',
+        lang: 'text',
+        body: 'agar so\'rov_murakkabligi < chegara:\n    javob = arzon_model.chaqir(so\'rov)\naks holda:\n    javob = kuchli_model.chaqir(so\'rov)',
+      },
+      {
+        type: 'callout',
+        tone: 'success',
+        title: 'Misol hisob',
+        body: 'So’rovlarning 70% oddiy bo’lsa va ular 5x arzonroq modelga yo’naltirilsa, umumiy AI xarajati taxminan 50-60% ga qisqarishi mumkin — sifatni deyarli yo’qotmasdan.',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        title: 'Kurs tugadi 🎉',
+        body: 'Endi Projects bo’limida real loyiha quring va Certificate sahifasidan sertifikatingizni oling. Eng muhimi — o’rgangan narsani bugundan boshlab qo’llang.',
+      },
+    ],
+    realWorld: [
+      'Yuqori hajmli support tizimi routing bilan xarajatni yarmiga tushiradi',
+      'Hujjat tahlili tizimi bir xil hujjat uchun natijani keshlab qayta hisoblamaydi',
+      'Ko’p bosqichli agent uzun system promptni caching bilan arzonlashtiradi',
+    ],
+    practice: {
+      title: 'Uchta tejash strategiyasi',
+      task: 'O’z loyihangiz (yoki xayoliy loyiha) uchun caching, batching va model routing’dan qaysilari qo’llanishi mumkinligini yozing va taxminiy tejashni baholang.',
+      hint: 'Eng ko’p takrorlanadigan so’rov turini aniqlashdan boshlang.',
+      sample: 'So’rovlarning 60% FAQ tipida — bularni keshlab, qolganini model routing bilan ikkiga ajratsam, xarajat ~45% kamayadi.',
+    },
+    keyTakeaways: [
+      'Xarajat hajm bilan tez o’sadi — erta optimallashtiring',
+      'Prompt caching o’zgarmas qismni boshga joylashtirishni talab qiladi',
+      'Model routing sifatni deyarli yo’qotmasdan xarajatni sezilarli kamaytiradi',
     ],
   },
 ]
